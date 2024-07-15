@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .white {
+    /* Default background color of <body />...etc */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+
+    /* Muted backgrounds such as <TabsList />, <Skeleton /> and <Switch /> */
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    /* Background color for popovers such as <DropdownMenu />, <HoverCard />, <Popover /> */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+
+    /* Background color for <Card /> */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+
+    /* Default border color for inputs such as <Input />, <Select />, <Textarea /> */
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+
+    /* Primary colors for <Button /> */  
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary colors for <Button /> */
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+
+    /* Used for accents such as hover effects on <DropdownMenuItem>, <SelectItem>...etc */
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+
+    /* Used for destructive actions such as <Button variant="destructive"> */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Used for focus ring */
+    --ring: 0 0% 3.9%;
+
+    /* Border radius for card, input and buttons */
+    --radius: 0.5rem;
+  }
+
+  /* для использование через selector в конфиг. tailwind, а не через медиа-запрос */
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+
+    /* colors for gradients */
+    --modal-bg: 0, 0%, 7%; 
+    --gradient-color2: 240, 4%, 5%;
+    --gradient-color3: 277, 51%, 58%;
+    --gradient-color4: 240, 5%, 4%;
+    --gradient-color5: 263, 79%, 39%;
+    
+    --gradient-color1: hsl(0, 0%, 0%);      /* 20% и 100% */
+    --gradient-color2: hsl(240, 4%, 5%);    /* 100% */
+    --gradient-color3: hsl(277, 51%, 58%);  /* 100% и 0% */
+    --gradient-color4: hsl(240, 5%, 4%);    /* 100% */
+    --gradient-color5: hsl(263, 79%, 39%);  /* 100% */
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 0 0% 83.1%;
+  }
+}
+
+@layer base {
+  /* убрать звёздочку, если она переписывает стили */
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+    margin: 0;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-500;
+    min-height: 100svh; /* Прочитай про svh, lvh, vh */
+    /* color: var(--color-text);
+    background: var(--color-background);
+    transition: color 0.5s, background-color 0.5s; */
+    line-height: 1.2;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+#app {
+  max-width: 100%; 
+  margin: 0 auto;
+  /* padding: 1rem; */
+  font-weight: normal;
+}

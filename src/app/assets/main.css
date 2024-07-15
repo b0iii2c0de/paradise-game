@@ -1,0 +1,29 @@
+@import './index.css';
+
+/* body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* #app {
+  max-width: 100%; 
+  margin: 0 auto;
+  padding: 1rem;
+  font-weight: normal;
+} */
+
+/* @media (min-width: 1024px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+} */
