@@ -33,6 +33,7 @@ module.exports = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
           modal: "hsl(var(--modal-bg))",
+          buttonBg: "hsl(var(--button-pink))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

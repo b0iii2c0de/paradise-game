@@ -54,24 +54,24 @@
     <div class="flex flex-col items-center pt-2">
       <nav ref="navRef" class="flex items-center justify-between w-full px-8 sm:px-6">
         <RouterLink to="/" class="flex flex-col items-center" :class="{ 'text-fuchsia-400': currentRoute === '/' }">
-          <IconPlay class="w-6 h-6 sm:w-8 sm:h-8" :class="{ 'text-fuchsia-400': currentRoute === '/' }" />
-          <span class="text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/' }">Play</span>
+          <IconPlay class="w-7 h-7" :class="{ 'text-fuchsia-400': currentRoute === '/' }" />
+          <span class="font-semibold text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/' }">Play</span>
         </RouterLink>
         <RouterLink to="/tasks" class="flex flex-col items-center" :class="{ 'text-fuchsia-400': currentRoute === '/tasks' }">
-          <IconTasks class="w-6 h-6 sm:w-8 sm:h-8" :class="{ 'text-fuchsia-400': currentRoute === '/tasks' }" />
-          <span class="text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/tasks' }">Tasks</span>
+          <IconTasks class="w-7 h-7" :class="{ 'text-fuchsia-400': currentRoute === '/tasks' }" />
+          <span class="font-semibold text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/tasks' }">Tasks</span>
         </RouterLink>
         <RouterLink to="/friends" class="flex flex-col items-center" :class="{ 'text-fuchsia-400': currentRoute === '/friends' }">
-          <IconFriends class="w-6 h-6 sm:w-8 sm:h-8" :class="{ 'text-fuchsia-400': currentRoute === '/friends' }" />
-          <span class="text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/friends' }">Friends</span>
+          <IconFriends class="w-7 h-7" :class="{ 'text-fuchsia-400': currentRoute === '/friends' }" />
+          <span class="font-semibold text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/friends' }">Friends</span>
         </RouterLink>
         <RouterLink to="/wallet" class="flex flex-col items-center" :class="{ 'text-fuchsia-400': currentRoute === '/wallet' }">
-          <IconWallet class="w-6 h-6 sm:w-8 sm:h-8" :class="{ 'text-fuchsia-400': currentRoute === '/wallet' }" />
-          <span class="text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/wallet' }">Wallet</span>
+          <IconWallet class="w-7 h-7" :class="{ 'text-fuchsia-400': currentRoute === '/wallet' }" />
+          <span class="font-semibold text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/wallet' }">Wallet</span>
         </RouterLink>
         <RouterLink to="/about" class="flex flex-col items-center" :class="{ 'text-fuchsia-400': currentRoute === '/about' }">
-          <IconAbout class="w-6 h-6 sm:w-8 sm:h-8" :class="{ 'text-fuchsia-400': currentRoute === '/about' }" />
-          <span class="text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/about' }">About</span>
+          <IconAbout class="w-7 h-7" :class="{ 'text-fuchsia-400': currentRoute === '/about' }" />
+          <span class="font-semibold text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/about' }">About</span>
         </RouterLink>
       </nav>
     </div>

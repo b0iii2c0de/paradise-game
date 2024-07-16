@@ -15,7 +15,7 @@
         <IconLogo />
       </RouterLink>
       <div class="bg-primary-foreground px-2 py-[2px] rounded-full flex items-center gap-2">
-        <span>{{ count }}</span>
+        <span class="font-semibold">{{ count }}</span>
         <IconButton class="w-[18px] h-[18px]" />
       </div>
     </div>

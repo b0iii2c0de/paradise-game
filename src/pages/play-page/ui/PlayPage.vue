@@ -9,7 +9,6 @@
     AlertDialogCancel,
     AlertDialogContent,
     AlertDialogDescription,
-    AlertDialogFooter,
     AlertDialogHeader,
     AlertDialogTitle,
   } from '@/shared/ui/alert-dialog';
@@ -52,20 +51,12 @@
     isModalOpen.value = true;
   };
 
-  const closeModal = () => {
-    isModalOpen.value = false
-  }
-
-  const handleOpenUpdate = (isOpen: boolean) => {
-    isModalOpen.value = isOpen
-  }
-
 </script>
 
 <template>
   <!-- это контейнер для главной кнопки-->
   <div class="gradient-bg flex flex-col h-full mt-[5.5rem]">
-    <button @click="increment" class="active:scale-95 transition-transform">
+    <button @click="increment" class="">
       <div class="pt-[56px]">
         <div class="">
           <p class="text-stone-400 text-centerW">Your Balance</p>
@@ -79,7 +70,7 @@
         <!-- главная кнопка-монетка -->
         <div class="pt-7 flex justify-center w-full">
           <div class="relative">
-            <IconButton class="relative z-10" />
+            <IconButton class="relative z-10 active:scale-95 transition-transform" />
             
             <!-- SVG для эффекта волны -->
             <svg v-for="wave in waves" :key="wave" class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%]">
@@ -110,9 +101,9 @@
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-1">
           <IconVoltage />
-          <span>974</span>
+          <span class="font-semibold">974</span>
         </div>
-        <span class="text-stone-400">/1000</span>
+        <span class="text-stone-400">/10000</span>
       </div>
       <Progress :model-value="60" />
     </div>
@@ -138,11 +129,6 @@
             We are increasing the award to 8,000 USDT for first place, 1,500 USDT for second place and 500 USDT for third place.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <!-- <AlertDialogFooter>
-          <AlertDialogCancel class="rounded-full outline-none bg-neutral-800">
-              <IconCross />
-          </AlertDialogCancel>
-        </AlertDialogFooter> -->
       </AlertDialogContent>
     </AlertDialog>
 

@@ -1,0 +1,1 @@
+export { default as LandPage } from './ui/LandPage.vue';

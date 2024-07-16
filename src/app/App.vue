@@ -3,6 +3,7 @@
   import { Header } from '@/widgets/header';
   import { Footer } from '@/widgets/footer';
   import { PlayPage } from '@/pages/play-page';
+  import { LandPage } from '@/pages/landing-page';
   
   const count = ref(0);
 
@@ -14,7 +15,8 @@
 <template>
   <Header :count="count" />
   <div class="flex justify-center items-center">
-    <PlayPage @update-count="updateCount"/>  
+    <LandPage />
+    <!-- <PlayPage @update-count="updateCount"/> -->
   </div>
   <Footer />
 </template>
