@@ -13,10 +13,10 @@
 </script>
 
 <template>
-  <Header :count="count" />
+  <!-- <Header :count="count" /> -->
   <div class="flex justify-center items-center">
     <LandPage />
     <!-- <PlayPage @update-count="updateCount"/> -->
   </div>
-  <Footer />
+  <!-- <Footer /> -->
 </template>
