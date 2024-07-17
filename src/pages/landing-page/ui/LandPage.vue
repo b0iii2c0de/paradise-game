@@ -59,13 +59,14 @@
           </div>
 
           <!-- Иконки -->
-          <div class="flex flex-row items-center justify-center gap-10 mt-4">
+          <div class="flex flex-row items-center justify-between px-8 mt-4 max-w-[413px] w-full mx-auto">
             <IconOA />
             <IconXrp />
-            <IconUnreal class="w-[33px] h-[35px]" />
-            <IconEpic class="w-[33px] h-[35px]" />
+            <IconUnreal class="w-10 h-10" />
+            <IconEpic class="w-8 h-9" />
             <IconPlayfab />
           </div>
+
         </CarouselItem>
         <CarouselItem>
           <h2 class="font-semibold text-2xl">Play & Earn Real Money</h2>
@@ -83,7 +84,8 @@
           <h2 class="font-semibold text-2xl">Game Launch</h2>
           <p class="font-semibold">EARN THE <span class="text-primary-buttonBg font-semibold">$PAR TOKEN</span> AND BE A PART OF THE <span class="text-primary-buttonBg font-semibold">PARADISE GAME&reg;</span></p>
           
-          <Button variant="link" class="bg-foreground border-[3px] border-background/70">
+          <!-- !rounded-[1.5rem] -->
+          <Button variant="link" class="bg-foreground border-[3px] border-background/70 !rounded-[0.5rem]">
             <span class="text-sm text-primary-foreground font-semibold pr-2">Read more</span>
             <IconArrowUpRight />
           </Button>
@@ -106,20 +108,40 @@
     </div>
     
     <div class="mt-5 px-1">
+      <!-- !rounded-[1.5rem] -->
       <Button @click="nextSlide" class="bg-primary-buttonBg hover:bg-fuchsia-400/70 w-full rounded-2xl h-14" size="lg">
         <span class="text-foreground font-semibold text-lg">Next</span>
       </Button>
     </div>
   </div>
+
+  <!-- Здесь нужен див верхняя граница которого, сольёться по цвету с фоном -->
+  <div class="div-bg absolute inset-0 pointer-events-none"></div>
+
 </template>
 
 <style scoped>
-.bg-img_landing {
-  width: 413px;
-  height: 500%;
-  background-image: url('@/shared/assets/images/Landing.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center -2px;
-}
+  /* Перенеси в PlayPage эти стили */
+  .bg-img_landing {
+    width: 100%;
+    max-width: 413px;
+    height: auto;
+    /* height: 100vh; */
+    background-image: url('@/shared/assets/images/Landing.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center -2px;
+  }
+
+  @media (max-width: 375px) {
+    .bg-img_landing {
+      /* height: 110vh; */
+      background-size: cover;
+    }
+  }
+
+  .div-bg {
+    background: linear-gradient(0deg, rgba(13, 13, 14, 0.7), rgba(13, 13, 14, 0.7)),
+                linear-gradient(180deg, rgba(13, 13, 14, 0) 0%, #0D0D0E 92%);
+  }
 </style>

@@ -68,6 +68,7 @@
         </div>
         
         <!-- главная кнопка-монетка -->
+        <!--  добавь при необходимости в родительский контейнер параметр overflow-hidden. -->
         <div class="pt-7 flex justify-center w-full">
           <div class="relative">
             <IconButton class="relative z-10 active:scale-95 transition-transform" />
