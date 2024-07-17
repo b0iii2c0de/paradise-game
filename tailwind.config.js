@@ -20,9 +20,13 @@ module.exports = {
       padding: "2rem",
       screens: {
         // "2xl": "1400px",
+        // 'xs': "375px",
       },
     },
     extend: {
+      screens: {
+        'xs': "375px",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

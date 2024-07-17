@@ -42,9 +42,8 @@
             <IconLogo class="w-full h-auto max-h-[55px]" />
           </div>
           
-
-          <h2 class="font-semibold text-center text-xl mt-3">REAL WORLD SIMULATION GAME</h2>
-          <h2 class="font-semibold text-xl mt-[-2px]">BASED ON AI</h2>
+          <h2 class="font-semibold text-center mt-3 xs:text-xl text-lg">REAL WORLD SIMULATION GAME</h2>  
+          <h2 class="font-semibold xs:text-xl text-lg mt-[-2px]">BASED ON AI</h2>
 
           <!-- Трейлер -->
           <div class="w-full h- px-4 mt-7 aspect-video">
@@ -68,17 +67,19 @@
           </div>
 
         </CarouselItem>
-        <CarouselItem>
-          <h2 class="font-semibold text-2xl">Play & Earn Real Money</h2>
+        <CarouselItem class="flex flex-col items-center justify-between h-full">
+          <h2 class="font-semibold xs:text-3xl text-2xl text-center mt-[7.2rem]">Play & Earn Real Money</h2>
 
-          <IconButton />
-          <!-- тень монетки -->
-          <div class="absolute -bottom-[40px] left-1 right-1 h-[10px] bg-violet-400/30 blur-lg rounded-full z-0"></div>
-
-          <p class="font-semibold text-2xl">
-            <span class="text-primary-buttonBg font-semibold text-2xl">1 $PAR</span> = 0.00001 USDT
+          <div class="flex flex-col mt-[3.6rem]">
+            <IconButton class="w-[14rem] h-[14rem]" />
+            <!-- тень монетки -->
+            <div class="absolute -bottom-[40px] left-1 right-1 h-[10px] bg-fuchsia-400 blur-lg rounded-full z-0"></div>
+          </div>
+          
+          <p class="font-semibold xs:text-2xl text-xl text-center mt-[4.2rem]">
+            <span class="text-primary-buttonBg font-semibold xs:text-2xl text-xl text-center">1 $PAR</span> = 0.00001 USDT
           </p>
-          <p class="text-sm text-muted-foreground">Connect your wallet and get the rewards</p>
+          <p class="font-normal xs:text-[1rem] text-sm text-center text-muted-foreground">Connect your wallet and get the rewards</p>
         </CarouselItem>
         <CarouselItem>
           <h2 class="font-semibold text-2xl">Game Launch</h2>
@@ -116,7 +117,7 @@
   </div>
 
   <!-- Здесь нужен див верхняя граница которого, сольёться по цвету с фоном -->
-  <div class="div-bg absolute inset-0 pointer-events-none"></div>
+  <div class="div-bg absolute w-full m-w-[413px] -z-10 inset-0 pointer-events-none"></div>
 
 </template>
 
