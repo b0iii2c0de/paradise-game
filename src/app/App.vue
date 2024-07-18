@@ -13,6 +13,7 @@
 </script>
 
 <template>
+  <!-- Перенести ли хедер, футер в PlayPage и т.д.? -->
   <!-- <Header :count="count" /> -->
   <div class="flex justify-center items-center">
     <LandPage />
