@@ -1,12 +1,9 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import { useRouter } from 'vue-router'
   import {
     Carousel,
     CarouselContent,
     CarouselItem,
-    CarouselNext,
-    CarouselPrevious
+    CarouselNext
   } from '@/shared/ui/carousel'
   import { Button } from '@/shared/ui/button'
   import {
@@ -19,22 +16,11 @@
     IconButton,
     IconLogo
   } from '@/shared/assets/icons/'
-
-  const currentSlide = ref(0)
-  const router = useRouter()
-
-  const nextSlide = () => {
-    if (currentSlide.value < 2) {
-      currentSlide.value++
-    } else {
-      router.push('/')
-    }
-  }
 </script>
 
 <template>
-  <div class="bg-img_landing flex flex-col h-full">
-    <Carousel v-model="currentSlide">
+  <div class="bg-img_landing flex flex-col h-full relative">
+    <Carousel>
       <!-- вернуться если будет урезаться на маленьких экранах -->
       <CarouselContent class="pb-12 xs:pb-6">
         <CarouselItem class="flex flex-col items-center justify-between h-full">
@@ -71,17 +57,22 @@
           </div>
         </CarouselItem>
         <CarouselItem class="relative flex flex-col items-center justify-between h-full">
-          <h2 class="font-semibold xs:text-3xl text-2xl text-center mt-[7.2rem]">Play & Earn Real Money</h2>
+          <h2 class="font-semibold xs:text-3xl text-2xl text-center mt-[7.2rem]">
+            Play & Earn Real Money
+          </h2>
 
           <div class="flex-grow flex flex-col justify-center items-center mt-[3.6rem]">
             <IconButton class="w-[14rem] h-[14rem]" />
             <!-- тень -->
             <div class="h-[10px] w-28 bg-fuchsia-400/20 blur-md rounded-full mt-6"></div>
           </div>
-          
+
           <div class="flex flex-col items-center mt-[2.1rem]">
             <p class="font-bold xs:text-[1.7rem] text-xl text-center">
-              <span class="text-primary-buttonBg font-semibold xs:text-[1.7rem] text-xl">1 $PAR</span> = 0.00001 USDT
+              <span class="text-primary-buttonBg font-semibold xs:text-[1.7rem] text-xl"
+                >1 $PAR</span
+              >
+              = 0.00001 USDT
             </p>
           </div>
 
@@ -93,33 +84,48 @@
         </CarouselItem>
         <CarouselItem class="relative flex flex-col items-center justify-between h-full">
           <div>
-            <h2 class="font-semibold xs:text-[2rem] text-2xl text-center mt-[7.2rem]">Game Launch</h2>
+            <h2 class="font-semibold xs:text-[2rem] text-2xl text-center mt-[7.2rem]">
+              Game Launch
+            </h2>
             <p class="font-semibold text-center mt-6 xs:text-[1.2rem] text-base">
-              EARN THE <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base">$PAR TOKEN</span> AND BE A PART 
-              <br> 
-              OF THE <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base">PARADISE GAME&reg;</span>
+              EARN THE
+              <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base"
+                >$PAR TOKEN</span
+              >
+              AND BE A PART
+              <br />
+              OF THE
+              <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base"
+                >PARADISE GAME&reg;</span
+              >
             </p>
           </div>
-          
+
           <div class="mt-[2rem] w-full max-w-[16rem]">
             <Button
               size="xl"
               class="w-full bg-foreground border-[3px] border-background/70 !rounded-[0.5rem] active:scale-95 transition-transform"
             >
-              <span class="text-sm xs:text-lg text-primary-foreground font-semibold pr-[1rem]">Read more</span>
+              <span class="text-sm xs:text-lg text-primary-foreground font-semibold pr-[1rem]"
+                >Read more</span
+              >
               <IconArrowUpRight />
             </Button>
           </div>
-          
+
           <!-- GIF -->
           <div class="xs:px-8 px-4 pt-8 w-full">
-            <img src="@/shared/assets/images/car.gif" alt="car" class="w-full h-auto rounded-2xl object-cover" />
+            <img
+              src="@/shared/assets/images/car.gif"
+              alt="car"
+              class="w-full h-auto rounded-2xl object-cover"
+            />
           </div>
-
         </CarouselItem>
       </CarouselContent>
-      <!-- <CarouselPrevious />
-      <CarouselNext /> -->
+      <div class="absolute -bottom-28 left-0 right-0 px-4">
+        <CarouselNext class="bg-primary-buttonBg hover:bg-fuchsia-400/70 w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
+      </div>
     </Carousel>
 
     <!-- Три полоски над кнопкой -->
@@ -129,15 +135,13 @@
       <div class="w-[55px] h-[3px] bg-neutral-700 rounded-full"></div>
     </div>
 
-    <div class="mt-5 px-4">
+    <!-- <div class="mt-5 px-4">
       <Button
-        @click="nextSlide"
         class="bg-primary-buttonBg hover:bg-fuchsia-400/70 w-full rounded-2xl h-14 active:scale-95 transition-transform"
-        size="lg"
       >
         <span class="text-foreground font-semibold text-sm xs:text-lg">Next</span>
       </Button>
-    </div>
+    </div> -->
   </div>
 
   <!-- Здесь нужен див верхняя граница которого, сольёться по цвету с фоном -->
