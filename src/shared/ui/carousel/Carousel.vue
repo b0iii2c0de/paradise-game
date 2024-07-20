@@ -13,22 +13,6 @@ const carouselArgs = useProvideCarousel(props, emits)
 
 defineExpose(carouselArgs)
 
-function onKeyDown(event: KeyboardEvent) {
-  const prevKey = props.orientation === 'vertical' ? 'ArrowUp' : 'ArrowLeft'
-  const nextKey = props.orientation === 'vertical' ? 'ArrowDown' : 'ArrowRight'
-
-  if (event.key === prevKey) {
-    event.preventDefault()
-    carouselArgs.scrollPrev()
-
-    return
-  }
-
-  if (event.key === nextKey) {
-    event.preventDefault()
-    carouselArgs.scrollNext()
-  }
-}
 </script>
 
 <template>
@@ -37,7 +21,6 @@ function onKeyDown(event: KeyboardEvent) {
     role="region"
     aria-roledescription="carousel"
     tabindex="0"
-    @keydown="onKeyDown"
   >
     <slot v-bind="carouselArgs" />
   </div>

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+  import { ref } from 'vue'
+  import { useRouter } from 'vue-router'
   import {
     Carousel,
     CarouselContent,
@@ -16,6 +18,17 @@
     IconButton,
     IconLogo
   } from '@/shared/assets/icons/'
+
+  const currentSlide = ref(0)
+  const router = useRouter()
+
+  const handleNext = () => {
+  if (currentSlide.value < 2) {
+    currentSlide.value++
+  } else {
+    router.push('/play')
+  }
+} 
 </script>
 
 <template>
@@ -124,24 +137,18 @@
         </CarouselItem>
       </CarouselContent>
       <div class="absolute -bottom-28 left-0 right-0 px-4">
-        <CarouselNext class="bg-primary-buttonBg hover:bg-fuchsia-400/70 w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
+        <CarouselNext @click="handleNext" class="bg-primary-buttonBg hover:bg-fuchsia-400/70 w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
       </div>
     </Carousel>
 
     <!-- Три полоски над кнопкой -->
     <div class="flex flex-row justify-center items-center gap-3 mt-9">
-      <div class="w-[55px] h-[3px] bg-primary-buttonBg rounded-full"></div>
-      <div class="w-[55px] h-[3px] bg-neutral-700 rounded-full"></div>
-      <div class="w-[55px] h-[3px] bg-neutral-700 rounded-full"></div>
+      <div 
+        v-for="index in 3" 
+        :key="index" 
+        :class="['w-[55px] h-[3px] rounded-full', index - 1 === currentSlide ? 'bg-primary-buttonBg' : 'bg-neutral-700']">
+      </div>
     </div>
-
-    <!-- <div class="mt-5 px-4">
-      <Button
-        class="bg-primary-buttonBg hover:bg-fuchsia-400/70 w-full rounded-2xl h-14 active:scale-95 transition-transform"
-      >
-        <span class="text-foreground font-semibold text-sm xs:text-lg">Next</span>
-      </Button>
-    </div> -->
   </div>
 
   <!-- Здесь нужен див верхняя граница которого, сольёться по цвету с фоном -->

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { RouterLink, RouterView, useRoute } from 'vue-router';
+  import { RouterLink, useRoute } from 'vue-router';
   import { ref, computed } from 'vue';
   import IconPlay from '@/shared/assets/icons/IconPlay.vue';
   import IconTasks from '@/shared/assets/icons/IconTasks.vue';
@@ -53,7 +53,7 @@
     <!-- навигация -->
     <div class="flex flex-col items-center pt-2">
       <nav ref="navRef" class="flex items-center justify-between w-full px-8 sm:px-6">
-        <RouterLink to="/" class="flex flex-col items-center" :class="{ 'text-fuchsia-400': currentRoute === '/' }">
+        <RouterLink to="/play" class="flex flex-col items-center" :class="{ 'text-fuchsia-400': currentRoute === '/' }">
           <IconPlay class="w-7 h-7" :class="{ 'text-fuchsia-400': currentRoute === '/' }" />
           <span class="font-semibold text-xs sm:text-sm mt-2" :class="{ 'text-fuchsia-400/70': currentRoute === '/' }">Play</span>
         </RouterLink>
@@ -77,9 +77,6 @@
     </div>
 
   </footer>
-
-  <!-- RouterView обычно размещается в основном компоненте приложения (например, App.vue), чтобы отображать содержимое текущего маршрута -->
-  <RouterView />
 </template>
 
 <style scoped>

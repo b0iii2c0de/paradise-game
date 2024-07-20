@@ -1,11 +1,11 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  import { RouterView, useRoute } from 'vue-router';
   import { Header } from '@/widgets/header';
   import { Footer } from '@/widgets/footer';
-  import { PlayPage } from '@/pages/play-page';
-  import { LandPage } from '@/pages/landing-page';
   
   const count = ref(0);
+  const route = useRoute();
 
   const updateCount = (newCount: number) => {
     count.value = newCount;
@@ -13,11 +13,10 @@
 </script>
 
 <template>
-  <!-- Перенести ли хедер, футер в PlayPage и т.д.? -->
-  <!-- <Header :count="count" /> -->
+  <Header :count="count" v-if="route.path !== '/'" />
   <div class="flex justify-center items-center">
-    <LandPage />
     <!-- <PlayPage @update-count="updateCount"/> -->
+    <RouterView @update-count="updateCount"/>
   </div>
-  <!-- <Footer /> -->
+  <Footer v-if="route.path !== '/'" />
 </template>

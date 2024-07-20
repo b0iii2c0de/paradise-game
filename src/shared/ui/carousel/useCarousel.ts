@@ -24,6 +24,8 @@ const [useProvideCarousel, useInjectCarousel] = createInjectionState(
     const [emblaNode, emblaApi] = emblaCarouselVue({
       ...opts,
       axis: orientation === 'horizontal' ? 'x' : 'y',
+      // отключаем прокрутку при перетаскивании
+      watchDrag: false,
     }, plugins)
 
     /**
