@@ -14,10 +14,13 @@
       <RouterLink to="/play" class="active:scale-95 transition-transform pl-1">
         <IconLogo />
       </RouterLink>
-      <div class="bg-primary-foreground px-2 py-[2px] rounded-full flex items-center gap-2">
-        <span class="font-semibold">{{ count }}</span>
-        <IconButton class="w-[18px] h-[18px]" />
-      </div>
+
+      <RouterLink to="/wallet" class="active:scale-95 transition-transform pl-1">
+        <div class="bg-primary-foreground px-2 py-[2px] rounded-full flex items-center gap-2">
+          <span class="font-semibold">{{ count }}</span>
+          <IconButton class="w-[18px] h-[18px]" />
+        </div>
+      </RouterLink>
     </div>
 
     <!-- полоска -->
