@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <header class="fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-[413px]">
+  <header class="fixed top-0 left-1/2 transform -translate-x-1/2 w-full max-w-[413px] bg-background">
     <div class="p-[13px] flex flex-row justify-between items-center">
       <RouterLink to="/play" class="active:scale-95 transition-transform pl-1">
         <IconLogo />

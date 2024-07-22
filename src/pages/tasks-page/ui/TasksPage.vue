@@ -10,8 +10,11 @@
     IconXWar,
     IconXrp,
     IconCG,
-    IconCMC
-  } from '@/shared/assets/icons';
+    IconCMC,
+    IconArrowRight
+  } from '@/shared/assets/icons'
+  import { Button } from '@/shared/ui/button'
+
 
     /**
    * TODO: Рефакторинг по Feature-Sliced Design
@@ -161,20 +164,24 @@
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center w-full max-w-[413px] h-auto mt-14">
-    <div class="flex flex-col justify-start items-start gap-1">
-      <h2 class="font-semibold text-2xl">Tasks to do <span class="text-xl">👋🏻</span></h2>
-      <p class="font-normal text-muted-foreground">Finish these tasks to get more tokens.</p>
+  <div class="flex flex-col justify-center w-full max-w-[413px] h-auto mt-[4.5rem] px-4">
+    <div class="flex flex-col sticky top-[3.3rem] z-10 bg-background border-t-red-700">
+      <h2 class="font-semibold xs:text-2xl text-xl">Tasks to do <span class="xs:text-xl text-lg">👋🏻</span></h2>
+      <p class="font-semibold text-muted-foreground xs:text-base text-sm">Finish these tasks to get more tokens.</p>
     </div>
     <div 
       v-for="task in tasksToDo" 
       :key="task.id"
-      class="px-3 flex flex-col gap-2 mt-3"
+      class="px-3 flex flex-col overflow-y-auto flex-grow gap-2 mt-3"
     >
-      <component :is="iconMap[task.icon as keyof typeof iconMap]" v-if="task.icon in iconMap" />
-      <span v-else>{{ task.icon }}</span>
-      <span>{{ task.title }}</span>
-      <span>{{ task.reward }}</span>
+      <button class="flex flex-row justify-between items-center gap-2 py-3 px-2 rounded-lg bg-card hover:bg-card-hover transition-colors">
+        <component :is="iconMap[task.icon as keyof typeof iconMap]" v-if="task.icon in iconMap" />
+        <span v-else>{{ task.icon }}</span>
+        <span class="text-wrap text-left">{{ task.title }}</span>
+        <span>{{ task.reward }}</span>
+        <IconArrowRight class="text-primary-buttonBg" />
+      </button>
+      
     </div>
   </div>
 </template>
