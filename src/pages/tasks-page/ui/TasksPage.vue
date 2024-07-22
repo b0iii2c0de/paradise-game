@@ -163,11 +163,18 @@
 <template>
   <div class="flex flex-col items-center justify-center w-full max-w-[413px] h-auto mt-14">
     <div class="flex flex-col justify-start items-start gap-1">
-      <h2 class="font-semibold text-2xl">Tasks to do <span class="text-xl">👋</span></h2>
+      <h2 class="font-semibold text-2xl">Tasks to do <span class="text-xl">👋🏻</span></h2>
       <p class="font-normal text-muted-foreground">Finish these tasks to get more tokens.</p>
     </div>
-    <div class="px-3">
-      <div class="w-full border-1"></div>
+    <div 
+      v-for="task in tasksToDo" 
+      :key="task.id"
+      class="px-3 flex flex-col gap-2 mt-3"
+    >
+      <component :is="iconMap[task.icon as keyof typeof iconMap]" v-if="task.icon in iconMap" />
+      <span v-else>{{ task.icon }}</span>
+      <span>{{ task.title }}</span>
+      <span>{{ task.reward }}</span>
     </div>
   </div>
 </template>
