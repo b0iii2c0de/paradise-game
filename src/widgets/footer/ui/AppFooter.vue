@@ -41,7 +41,7 @@
 </script>
 
 <template>
-  <footer class="w-full max-w-[413px] mx-auto">
+  <footer class="w-full max-w-[413px] mx-auto bg-background">
     <!-- полоска -->
     <div class="mt-[94px] h-px bg-primary-foreground relative">
       <!-- фиолетовая полоска поверх -->

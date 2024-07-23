@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import type { Task } from '@/entities/tasks'
   import { 
     IconTelegram,
@@ -11,7 +11,10 @@
     IconXrp,
     IconCG,
     IconCMC,
-    IconArrowRight
+    IconArrowRight,
+    IconButton,
+    IconHand,
+    IconDad,
   } from '@/shared/assets/icons'
   import { Button } from '@/shared/ui/button'
 
@@ -36,16 +39,18 @@
     xrp: IconXrp,
     cg: IconCG,
     cmc: IconCMC,
+    hand: IconHand,
+    daddy: IconDad,
   }
 
   const tasksToDo = ref<Task[]>([
     {
       id: 1,
-      icon: '👋🏻',
+      icon: 'hand',
       title: 'Daily visit',
       reward: 5000,
       completed: false,
-      claimable: false,
+      claimable: true,
     },
     {
       id: 2,
@@ -106,7 +111,7 @@
     {
       id: 10,
       icon: 'youtube',
-      title: 'Watch the trailer to the end, like it.',
+      title: 'Watch the trailer to the end, like it',
       reward: 25000,
       completed: false,
     },
@@ -119,7 +124,7 @@
     },
     {
       id: 12,
-      icon: '👴🏼',
+      icon: 'daddy',
       title: 'Join DADDY',
       reward: 50000,
       completed: false,
@@ -160,32 +165,75 @@
       completed: false,
     },
   ])
-
 </script>
 
 <template>
-  <div class="flex flex-col justify-center w-full max-w-[413px] h-auto mt-[4.5rem] px-4">
-    <div class="flex flex-col sticky top-[3.3rem] z-10 bg-background border-t-red-700">
-      <h2 class="font-semibold xs:text-2xl text-xl">Tasks to do <span class="xs:text-xl text-lg">👋🏻</span></h2>
-      <p class="font-semibold text-muted-foreground xs:text-base text-sm">Finish these tasks to get more tokens.</p>
+  <!-- если что, поменяй h-screen на h-full/auto -->
+  <div class="flex flex-col justify-center w-full max-w-[413px] h-full max-h-[34.3rem] mt-[4.5rem] px-4">
+    <div class="flex flex-col sticky top-[3.3rem] z-10 bg-background">
+      <h2 class="font-semibold xs:text-[1.4rem] text-xl">Tasks to do <span class="xs:text-xl text-lg">👋🏻</span></h2>
+      <p class="font-normal text-muted-foreground xs:text-base text-sm">Finish these tasks to get more tokens.</p>
     </div>
-    <div 
-      v-for="task in tasksToDo" 
-      :key="task.id"
-      class="px-3 flex flex-col overflow-y-auto flex-grow gap-2 mt-3"
-    >
-      <button class="flex flex-row justify-between items-center gap-2 py-3 px-2 rounded-lg bg-card hover:bg-card-hover transition-colors">
-        <component :is="iconMap[task.icon as keyof typeof iconMap]" v-if="task.icon in iconMap" />
-        <span v-else>{{ task.icon }}</span>
-        <span class="text-wrap text-left">{{ task.title }}</span>
-        <span>{{ task.reward }}</span>
-        <IconArrowRight class="text-primary-buttonBg" />
-      </button>
-      
+    
+    <!-- список задач -->
+    <div class="flex flex-col overflow-y-auto flex-grow gap-3 mt-5 -mb-[80px] custom-scrollbar">
+      <div 
+        v-for="task in tasksToDo" 
+        :key="task.id"
+        class="active:scale-95 transition-transform"
+      >
+        <div class="flex flex-row items-center gap-2 h-20 py-3 px-3 border-2 border-fuchsia-400/20 !rounded-[0.8rem] bg-neutral-800/40 hover:neutral-800/50 transition-colors">
+          <div class="bg-background border-2 !rounded-[0.5rem] w-14 h-14 flex flex-shrink-0 items-center justify-center p-3">
+            <component 
+              :is="iconMap[task.icon as keyof typeof iconMap]" 
+              class="w-7 h-7"
+            />
+          </div>
+
+          <!-- почитай про flex-grow & flex-shrink и как они работают вместе -->
+          <div class="flex flex-col gap-1 flex-grow overflow-hidden pl-3">
+            <h2 class="font-semibold xs:text-base text-sm truncate">{{ task.title }}</h2>
+            <div class="flex flex-row items-center gap-2">
+              <IconButton class="w-5 h-5"/>
+              <span class="font-medium">{{ task.reward }}</span>
+            </div>
+          </div>
+
+          <Button 
+            v-if="task.claimable"
+            variant="secondary" 
+            size="sm"
+            class="flex-shrink-0 bg-primary-buttonBg hover:bg-fuchsia-400/50 w-[8.8rem] rounded-2xl active:scale-95 transition-transform"
+          >
+            <span class="font-semibold xs:text-base text-sm">CLAIM</span>
+          </Button>
+          <Button v-else variant="ghost" size="icon" class="flex-shrink-0 !rounded-2xl active:scale-95 transition-transform">
+            <IconArrowRight class="w-auto h-4 text-primary-buttonBg" />
+          </Button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
+  .custom-scrollbar {
+    overflow-y: overlay;
+  }
 
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: transparent;
+  }
 </style>

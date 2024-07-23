@@ -137,7 +137,7 @@
         </CarouselItem>
       </CarouselContent>
       <div class="absolute -bottom-28 left-0 right-0 px-4">
-        <CarouselNext @click="handleNext" class="bg-primary-buttonBg hover:bg-fuchsia-400/70 w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
+        <CarouselNext @click="handleNext" class="bg-primary-buttonBg hover:bg-fuchsia-400/50 w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
       </div>
     </Carousel>
 

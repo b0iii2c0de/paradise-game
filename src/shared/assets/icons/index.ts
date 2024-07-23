@@ -15,3 +15,5 @@ export { default as IconWeb } from './IconWeb.vue';
 export { default as IconXWar } from './IconXWar.vue';
 export { default as IconCG } from './IconCG.vue';
 export { default as IconCMC } from './IconCMC.vue';
+export { default as IconHand } from './IconHand.vue';
+export { default as IconDad } from './IconDad.vue';
