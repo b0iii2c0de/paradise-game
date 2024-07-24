@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, onMounted } from 'vue'
+  import { ref, computed } from 'vue'
   import type { Task } from '@/entities/tasks'
   import { 
     IconTelegram,
@@ -15,9 +15,20 @@
     IconButton,
     IconHand,
     IconDad,
+    IconCross,
   } from '@/shared/assets/icons'
   import { Button } from '@/shared/ui/button'
-
+  import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from '@/shared/ui/alert-dialog'
 
     /**
    * TODO: Рефакторинг по Feature-Sliced Design
@@ -183,10 +194,10 @@
         class="active:scale-95 transition-transform"
       >
         <div class="flex flex-row items-center gap-2 h-20 py-3 px-3 border-2 border-fuchsia-400/20 !rounded-[0.8rem] bg-neutral-800/40 hover:neutral-800/50 transition-colors">
-          <div class="bg-background border-2 !rounded-[0.5rem] w-14 h-14 flex flex-shrink-0 items-center justify-center p-3">
+          <div class="bg-background border-2 !rounded-[0.5rem] w-14 h-14 flex flex-shrink-0 items-center justify-center p-3 icon-aura">
             <component 
               :is="iconMap[task.icon as keyof typeof iconMap]" 
-              class="w-7 h-7"
+              class="w-7 h-7 icon-glow"
             />
           </div>
 
@@ -203,16 +214,34 @@
             v-if="task.claimable"
             variant="secondary" 
             size="sm"
-            class="flex-shrink-0 bg-primary-buttonBg hover:bg-fuchsia-400/50 w-[8.8rem] rounded-2xl active:scale-95 transition-transform"
+            class="flex-shrink-0 bg-primary-buttonBg hover:bg-fuchsia-400/50 xs:w-[8.8rem] w-24 rounded-2xl"
           >
             <span class="font-semibold xs:text-base text-sm">CLAIM</span>
           </Button>
-          <Button v-else variant="ghost" size="icon" class="flex-shrink-0 !rounded-2xl active:scale-95 transition-transform">
+          <Button v-else variant="ghost" size="icon" class="flex-shrink-0 !rounded-2xl">
             <IconArrowRight class="w-auto h-4 text-primary-buttonBg" />
           </Button>
         </div>
       </div>
     </div>
+
+    <!-- модалка -->
+    <AlertDialog v-model:open="isModalOpen">
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogCancel class="absolute top-5 right-5 rounded-full bg-neutral-800">
+            <IconCross />
+          </AlertDialogCancel>
+          <AlertDialogTitle>Announce</AlertDialogTitle>
+          <AlertDialogDescription>
+            We are announcing a drawing for the user who invites the most referrals!
+          </AlertDialogDescription>
+          <AlertDialogDescription class="text-fuchsia-400">
+            We are increasing the award to 8,000 USDT for first place, 1,500 USDT for second place and 500 USDT for third place.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+      </AlertDialogContent>
+    </AlertDialog>
   </div>
 </template>
 
@@ -236,4 +265,14 @@
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: transparent;
   }
+
+  .icon-aura {
+    position: relative;
+    overflow: visible;
+  }
+
+  .icon-glow {
+    filter: drop-shadow(0 0 7px currentColor);
+  }
+
 </style>
