@@ -5,6 +5,9 @@
     IconAddFriends,
     IconButton,
     IconStar,
+    IconLevelFirst,
+    IconLevelSecond,
+    IconLevelThird,
   } from '@/shared/assets/icons';
   
 </script>
@@ -51,7 +54,7 @@
       <div class="flex flex-col">
         <div class="border border-muted-foreground/5 rounded-2xl flex flex-col items-start justify-center py-3 px-3 mt-5 bg-muted-foreground/10">
           <div class="flex flex-row items-center justify-between w-full">
-            <IconButton class="w-14 h-14 flex-shrink-0"/>
+            <IconLevelFirst class="w-14 h-14 flex-shrink-0"/>
             <div class="flex flex-col flex-grow mx-4">
               <h3 class="font-semibold xs:text-base text-sm">Invite 3 friends</h3>
               <div class="flex flex-row gap-1 justify-start items-center mt-1">
@@ -67,7 +70,7 @@
 
         <div class="border border-muted-foreground/5 rounded-2xl flex flex-col items-start justify-center py-3 px-3 mt-3 bg-muted-foreground/10">
           <div class="opacity-50 flex flex-row items-center justify-between w-full">
-            <IconButton class="w-14 h-14 flex-shrink-0"/>
+            <IconLevelSecond class="w-14 h-14 flex-shrink-0"/>
             <div class="flex flex-col flex-grow mx-4">
               <h3 class="font-semibold xs:text-base text-sm">Invite 10 friends</h3>
               <div class="flex flex-row gap-1 justify-start items-center mt-1">
@@ -80,7 +83,7 @@
 
         <div class="border border-muted-foreground/5 rounded-2xl flex flex-col items-start justify-center py-3 px-3 mt-3 bg-muted-foreground/10">
           <div class="opacity-50 flex flex-row items-center justify-between w-full">
-            <IconButton class="w-14 h-14 flex-shrink-0"/>
+            <IconLevelThird class="w-14 h-14 flex-shrink-0"/>
             <div class="flex flex-col flex-grow mx-4">
               <h3 class="font-semibold xs:text-base text-sm">Invite 100 friends</h3>
               <div class="flex flex-row gap-1 justify-start items-center mt-1">

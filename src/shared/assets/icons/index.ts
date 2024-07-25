@@ -21,3 +21,7 @@ export { default as IconCG } from './IconCG.vue';
 export { default as IconCMC } from './IconCMC.vue';
 export { default as IconHand } from './IconHand.vue';
 export { default as IconDad } from './IconDad.vue';
+export { default as IconLevelFirst } from './IconLevelFirst.vue';
+export { default as IconLevelSecond } from './IconLevelSecond.vue';
+export { default as IconLevelThird } from './IconLevelThird.vue';
+export { default as IconBird } from './IconBird.vue';

@@ -272,7 +272,7 @@
   }
 
   .icon-glow {
-    filter: drop-shadow(0 0 7px currentColor);
+    filter: drop-shadow(0 0 4px currentColor);
   }
 
 </style>
