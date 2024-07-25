@@ -25,6 +25,22 @@
           </div>
         </div>
       </div>
+      
+      <div class="border border-muted-foreground/5 rounded-2xl flex flex-row items-center justify-between py-4 px-4 mt-4 bg-muted-foreground/10">
+        <div class="flex flex-col items-start justify-center gap-1">
+          <h2 class="font-normal text-muted-foreground xs:text-base text-sm">XRP Wallet</h2>
+          <p class="font-semibold xs:text-xl text-lg">rNEgaricfF.....duxXPd</p>
+        </div>
+
+        <div class="flex flex-row items-center justify-center gap-3">
+          <Button variant="ghost" class="w-12 h-12 bg-muted-foreground/20 rounded-2xl active:scale-95 transition-transform">
+            <IconPencil />
+          </Button>
+          <Button variant="ghost" class="w-12 h-12 bg-muted-foreground/20 rounded-2xl active:scale-95 transition-transform">
+            <IconCross />
+          </Button>
+        </div>
+      </div>
 
       <Button size="xl" class="mt-4 w-full rounded-2xl bg-primary-buttonBg hover:bg-fuchsia-400/50 active:scale-95 transition-transform">
         <div class="flex flex-row items-center justify-center gap-4">
@@ -36,7 +52,7 @@
     
     <div class="flex-shrink-0 -mb-[80px]">
       <h2 class="font-normal text-muted-foreground xs:text-base text-sm text-center">Connect your wallet to withdraw your tokens.</h2>
-      <Button variant="ghost" size="xl" class="mt-3 w-full rounded-2xl bg-background hover:bg-background xs:border-2 border border-primary-buttonBg hover:border-fuchsia-400/40 active:scale-95 transition-transform" disabled>
+      <Button variant="ghost" size="xl" class="mt-3 w-full rounded-2xl bg-background hover:bg-background xs:border-2 border border-primary-buttonBg hover:border-fuchsia-400/40 active:scale-95 transition-transform">
         <span class="font-semibold xs:text-base text-sm hover:text-fuchsia-400/40 text-primary-buttonBg">Withdrawal</span>
       </Button>
     </div>
