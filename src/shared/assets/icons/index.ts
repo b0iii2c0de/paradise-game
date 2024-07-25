@@ -6,6 +6,7 @@ export { default as IconPlayfab } from './IconPlayfab.vue';
 export { default as IconArrowUpRight } from './IconArrowUpRight.vue';
 export { default as IconArrowRight } from './IconArrowRight.vue';
 export { default as IconCross } from './IconCross.vue';
+export { default as IconPencil } from './IconPencil.vue';
 export { default as IconAddFriends } from './IconAddFriends.vue';
 export { default as IconButton } from './IconButton.vue';
 export { default as IconStar } from './IconStar.vue';
