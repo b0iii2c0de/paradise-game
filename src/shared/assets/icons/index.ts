@@ -24,4 +24,4 @@ export { default as IconDad } from './IconDad.vue';
 export { default as IconLevelFirst } from './IconLevelFirst.vue';
 export { default as IconLevelSecond } from './IconLevelSecond.vue';
 export { default as IconLevelThird } from './IconLevelThird.vue';
-export { default as IconBird } from './IconBird.vue';
+export { default as IconCheckmark } from './IconCheckmark.vue';
