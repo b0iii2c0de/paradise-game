@@ -6,6 +6,7 @@ import vue from '@vitejs/plugin-vue'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/paradise-game/',
+  // base: '/',
   plugins: [
     vue(),
   ],

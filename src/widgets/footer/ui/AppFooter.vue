@@ -9,7 +9,9 @@
 
   const route = useRoute();
   const navRef = ref<HTMLElement | null>(null)
-  const currentRoute = computed(() => route.path) 
+  // const currentRoute = computed(() => route.path)
+  const currentRoute = computed(() => route.path.replace('/paradise-game', ''))
+ 
 
   /**
    * Вычисляет стиль для индикатора активной вкладки в навигации.
@@ -28,7 +30,8 @@
   const indicatorStyle = computed(() => {
     if (!navRef.value) return {}
     const items = Array.from(navRef.value.children) as HTMLElement[]
-    const currentIndex = items.findIndex(item => item.getAttribute('href') === currentRoute.value)
+    // const currentIndex = items.findIndex(item => item.getAttribute('href') === currentRoute.value)
+    const currentIndex = items.findIndex(item => item?.getAttribute('href')?.replace('/paradise-game', '') === currentRoute.value)
     if (currentIndex === -1) return {}
     const item = items[currentIndex]
     const { width, left } = item.getBoundingClientRect()

@@ -13,9 +13,9 @@
 </script>
 
 <template>
-  <div class="flex flex-col justify-center w-full max-w-[413px] h-full max-h-[34.3rem] mt-[4.5rem] px-4">
+  <div class="flex flex-col justify-center w-full max-w-[413px] h-full max-h-[35.8rem] mt-12 px-4">
     <div class="overflow-y-auto -mb-[80px] custom-scrollbar">
-      <div class="flex flex-col sticky top-0 z-10 bg-background pb-6">
+      <div class="flex flex-col mt-6 pb-6">
         <h2 class="font-semibold xs:text-[1.4rem] text-xl">Friends</h2>
         <p class="font-normal text-muted-foreground xs:text-base text-sm">Invite your friends and earn more!</p>
       </div>
