@@ -82,10 +82,8 @@
 
           <div class="flex flex-col items-center mt-[2.1rem]">
             <p class="font-bold xs:text-[1.7rem] text-xl text-center">
-              <span class="text-primary-buttonBg font-semibold xs:text-[1.7rem] text-xl"
-                >1 $PAR</span
-              >
-              = 0.00001 USDT
+              <span class="text-primary-buttonBg font-semibold xs:text-[1.7rem] text-xl">1 $PAR</span>
+              ≈ 0.00001 USDT
             </p>
           </div>
 

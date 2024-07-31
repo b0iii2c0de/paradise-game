@@ -184,8 +184,8 @@
   const purpleBackgroundIcons = ['hand', 'daddy', 'youtube', 'web', 'xwar', 'xrp'];
   const getIconBackground = (icon: string) => {
     return purpleBackgroundIcons.includes(icon)
-      ? IconBgPurple 
-      : IconBgGreen;
+      ? iconMap.bgPurple 
+      : iconMap.bgGreen;
   }
 </script>
 
