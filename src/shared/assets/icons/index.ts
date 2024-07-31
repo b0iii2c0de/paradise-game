@@ -11,6 +11,8 @@ export { default as IconAddFriends } from './IconAddFriends.vue';
 export { default as IconButton } from './IconButton.vue';
 export { default as IconStar } from './IconStar.vue';
 export { default as IconLogo } from './IconLogo.vue';
+export { default as IconBgPurple } from './IconBgPurple.vue';
+export { default as IconBgGreen } from './IconBgGreen.vue';
 export { default as IconTelegram } from './IconTelegram.vue';
 export { default as IconX } from './IconX.vue';
 export { default as IconDiscord } from './IconDiscord.vue';

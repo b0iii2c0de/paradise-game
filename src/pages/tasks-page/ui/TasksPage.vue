@@ -2,6 +2,8 @@
   import { ref, computed } from 'vue'
   import type { Task } from '@/entities/tasks'
   import { 
+    IconBgPurple,
+    IconBgGreen,
     IconTelegram,
     IconX,
     IconDiscord,
@@ -52,6 +54,8 @@
     cmc: IconCMC,
     hand: IconHand,
     daddy: IconDad,
+    bgPurple: IconBgPurple,
+    bgGreen: IconBgGreen
   }
 
   const tasksToDo = ref<Task[]>([
@@ -176,6 +180,13 @@
       completed: false,
     },
   ])
+
+  const purpleBackgroundIcons = ['hand', 'daddy', 'youtube', 'web', 'xwar', 'xrp'];
+  const getIconBackground = (icon: string) => {
+    return purpleBackgroundIcons.includes(icon)
+      ? IconBgPurple 
+      : IconBgGreen;
+  }
 </script>
 
 <template>
@@ -194,11 +205,12 @@
         class="active:scale-95 transition-transform"
       >
         <div class="flex flex-row items-center gap-2 h-20 py-3 px-3 border-2 border-fuchsia-400/20 !rounded-[0.8rem] bg-neutral-800/40 hover:neutral-800/50 transition-colors">
-          <div class="bg-background border-2 !rounded-[0.5rem] w-14 h-14 flex flex-shrink-0 items-center justify-center p-3 icon-aura">
+          <div class="relative border-2 !rounded-[0.5rem] w-14 h-14 flex flex-shrink-0 items-center justify-center p-3">
+            <component :is="getIconBackground(task.icon)" class="absolute w-14 h-14" />
             <component 
               :is="iconMap[task.icon as keyof typeof iconMap]" 
-              class="w-7 h-7 icon-glow"
-            />
+              class="z-10 w-7 h-7"
+            /> 
           </div>
 
           <!-- почитай про flex-grow & flex-shrink и как они работают вместе -->
@@ -267,13 +279,13 @@
     background: transparent;
   }
 
-  .icon-aura {
+  /* .icon-aura {
     position: relative;
     overflow: visible;
   }
 
   .icon-glow {
     filter: drop-shadow(0 0 4px currentColor);
-  }
+  } */
 
 </style>
