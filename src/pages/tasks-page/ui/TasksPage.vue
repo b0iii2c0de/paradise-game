@@ -226,7 +226,8 @@
     </div>
 
     <!-- модалка -->
-    <AlertDialog v-model:open="isModalOpen">
+    <!-- v-model:open="isModalOpen" -->
+    <AlertDialog>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogCancel class="absolute top-5 right-5 rounded-full bg-neutral-800">
