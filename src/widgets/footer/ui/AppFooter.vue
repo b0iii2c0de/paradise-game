@@ -56,9 +56,9 @@
     <!-- навигация -->
     <div class="flex flex-col items-center pt-2">
       <nav ref="navRef" class="flex items-center justify-between w-full px-8 sm:px-6">
-        <RouterLink to="/play" class="flex flex-col items-center gap-3" :class="{ 'text-fuchsia-400': currentRoute === '/' }">
-          <IconPlay class="w-7 h-auto" :class="{ 'text-fuchsia-400': currentRoute === '/' }" />
-          <span class="font-semibold text-xs sm:text-sm" :class="{ 'text-fuchsia-400/70': currentRoute === '/' }">Play</span>
+        <RouterLink to="/play" class="flex flex-col items-center gap-3" :class="{ 'text-fuchsia-400': currentRoute === '/play' }">
+          <IconPlay class="w-7 h-auto" :class="{ 'text-fuchsia-400': currentRoute === '/play' }" />
+          <span class="font-semibold text-xs sm:text-sm" :class="{ 'text-fuchsia-400/70': currentRoute === '/play' }">Play</span>
         </RouterLink>
         <RouterLink to="/tasks" class="flex flex-col items-center" :class="{ 'text-fuchsia-400': currentRoute === '/tasks' }">
           <IconTasks class="w-auto h-7" :class="{ 'text-fuchsia-400': currentRoute === '/tasks' }" />
