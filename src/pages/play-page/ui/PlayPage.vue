@@ -138,7 +138,7 @@
 
 <style scoped>
   .gradient-bg {
-    width: 413px;
+    width: 430px;
     height: 500px;
     background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(80, 21, 177, 0.5) 56.27%, rgba(0, 0, 0, 0.5) 100%), radial-gradient(88.83% 59.06% at 50% 40.94%, rgba(161, 93, 202, 0.3) 0%, rgba(10, 10, 11, 0) 100%);
   }

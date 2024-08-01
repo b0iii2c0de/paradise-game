@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col justify-center w-full max-w-[413px] h-full max-h-[35.8rem] mt-12 px-4">
+  <div class="flex flex-col justify-center w-full max-w-[430px] h-full max-h-[35.8rem] mt-12 px-4">
     <div class="overflow-y-auto -mb-[80px] custom-scrollbar">
       <div class="flex flex-col mt-6 pb-6">
         <h2 class="font-semibold xs:text-[1.4rem] text-xl">Friends</h2>

@@ -32,6 +32,7 @@
 </script>
 
 <template>
+  <!-- ширину род. контейнера сделать 430px (iPhone Pro Max) -->
   <div class="bg-img_landing flex flex-col h-full relative">
     <Carousel>
       <!-- вернуться если будет урезаться на маленьких экранах -->
@@ -150,14 +151,14 @@
   </div>
 
   <!-- Здесь нужен див верхняя граница которого, сольёться по цвету с фоном -->
-  <div class="div-bg absolute w-full m-w-[413px] -z-10 inset-0 pointer-events-none"></div>
+  <div class="div-bg absolute w-full m-w-[430px] -z-10 inset-0 pointer-events-none"></div>
 </template>
 
 <style scoped>
   /* Перенеси в PlayPage эти стили */
   .bg-img_landing {
     width: 100%;
-    max-width: 413px;
+    max-width: 430px;
     height: auto;
     /* height: 100vh; */
     background-image: url('@/shared/assets/images/Landing.png');

@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col justify-center w-full max-w-[413px] h-screen max-h-[34.3rem] mt-[4.5rem] px-4">
+  <div class="flex flex-col justify-center w-full max-w-[430px] h-screen max-h-[34.3rem] mt-[4.5rem] px-4">
     <div class="flex flex-col flex-shrink-0 pb-6">
       <h2 class="font-semibold xs:text-[1.4rem] text-xl">Wallet</h2>
       <p class="font-normal text-muted-foreground xs:text-base text-sm">Set up your wallet to receive rewards.</p>
