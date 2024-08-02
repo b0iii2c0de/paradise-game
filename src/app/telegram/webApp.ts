@@ -15,10 +15,6 @@ declare global {
             username?: string;
           };
         };
-        setHeaderColor: (color: string) => void;
-        requestTheme: (theme: string) => void;
-        requestViewport: (viewport: string) => void;
-        // до сюда
       };
     };
     getTgData: () => { 
@@ -38,7 +34,7 @@ declare global {
 //     return null;
 //   }
   
-//   return {
+//   return {This object contains data that is transferred to the Mini App when it is opened. It is empty if the Mini App was launched from a keyboard button or from inline mode.
 //     Data: tg.initData,
 //     Query: window.location.search,
 //     // вернуть User?
