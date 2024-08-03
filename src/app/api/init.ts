@@ -1,10 +1,11 @@
+import { tgWebApp } from '../telegram/webApp';
+
 export async function initApp() {
-  const tgData = window.getTgData();
-  if (!tgData) {
+  const initData = tgWebApp.initDataUnsafe;
+  const query = window.location.search;
+
+  if (!initData) {
     console.error('Telegram Web App data not available');
-    if (window.Telegram && window.Telegram.WebApp) {
-      console.log('WebApp initData:', window.Telegram.WebApp.initData);
-    }
     return null;
   }
 
@@ -15,8 +16,8 @@ export async function initApp() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        data: tgData.Data,
-        query: tgData.Query,
+        data: JSON.stringify(initData),
+        query: query,
       }),
       credentials: 'include',
     });
@@ -28,7 +29,6 @@ export async function initApp() {
     const result = await response.json();
     console.log('App initialized successfully', result);
 
-    // Сохраняем токен для дальнейшего использования
     if (result.token) {
       localStorage.setItem('authToken', result.token);
     }
@@ -40,3 +40,4 @@ export async function initApp() {
     return null;
   }
 }
+
