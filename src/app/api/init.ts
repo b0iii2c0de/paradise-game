@@ -1,9 +1,11 @@
 import { tgWebApp } from '../telegram/webApp';
 
 export async function initApp() {
+  // const initData = tgWebApp.initData;
   const initData = tgWebApp.initDataUnsafe;
   const query = window.location.search;
 
+  // (!initData || Object.keys(initData).length === 0)
   if (!initData) {
     console.error('Telegram Web App data not available');
     return null;
