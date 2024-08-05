@@ -23,51 +23,52 @@
   const router = useRouter()
 
   const handleNext = () => {
-  if (currentSlide.value < 2) {
-    currentSlide.value++
-  } else {
-    router.push('/play')
-  }
-} 
-</script>
+    if (currentSlide.value < 2) {
+      currentSlide.value++
+    } else {
+      router.push('/play')
+    }
+  } 
+</script> 
 
 <template>
-  <!-- ширину род. контейнера сделать 430px (iPhone Pro Max) -->
-  <div class="bg-img_landing flex flex-col h-full relative">
+  <div class="bg-img_landing flex flex-col w-full max-w-md h-full relative">
     <Carousel>
       <!-- вернуться если будет урезаться на маленьких экранах -->
-      <CarouselContent class="pb-12 xs:pb-6">
-        <CarouselItem class="flex flex-col items-center justify-between h-full">
-          <div class="max-w-[169px] w-full mt-[115px]">
-            <IconLogo class="w-full h-auto max-h-[55px]" />
-          </div>
+      <CarouselContent class="pb-12 xs:pb-6 h-full">
+        <CarouselItem class="h-full">
+          <div class="flex-grow flex flex-col items-center justify-between">
+            <div class="max-w-[169px] w-full mt-[115px]">
+              <IconLogo class="w-full h-auto max-h-[55px]" />
+            </div>
 
-          <h2 class="font-semibold text-center mt-3 xs:text-xl text-lg">
-            REAL WORLD SIMULATION GAME
-          </h2>
-          <h2 class="font-semibold xs:text-xl text-lg mt-[-2px]">BASED ON AI</h2>
+            <h2 class="font-semibold text-center mt-3 xs:text-xl text-lg">
+              REAL WORLD SIMULATION GAME
+            </h2>
+            <h2 class="font-semibold xs:text-xl text-lg mt-[-2px]">BASED ON AI</h2>
 
-          <!-- Трейлер -->
-          <div class="w-full h-auto xs:px-8 px-4 mt-7 xs:mb-0 mb-5 aspect-video">
-            <iframe
-              src="https://www.youtube.com/embed/QdBZY2fkU-0"
-              title="Game Trailer"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-              class="w-full aspect-video rounded-2xl"
-            ></iframe>
-          </div>
+            <!-- Трейлер -->
+            <div class="w-full h-auto xs:px-8 px-4 mt-7 xs:mb-0 mb-5 aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/QdBZY2fkU-0"
+                title="Game Trailer"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                class="w-full aspect-video rounded-2xl"
+              ></iframe>
+            </div>
 
-          <!-- Иконки -->
-          <div
-            class="flex flex-row items-center justify-between px-12 -mt-1 max-w-[413px] w-full mx-auto"
-          >
-            <IconOA />
-            <IconXrp />
-            <IconUnreal class="w-10 h-10" />
-            <IconEpic class="w-8 h-9" />
-            <IconPlayfab />
+            <!-- Иконки -->
+            <div
+              class="flex flex-row items-center justify-between px-12 -mt-1 max-w-[413px] w-full mx-auto"
+            >
+              <IconOA />
+              <IconXrp />
+              <IconUnreal class="w-10 h-10" />
+              <IconEpic class="w-8 h-9" />
+              <IconPlayfab />
+            </div>
           </div>
         </CarouselItem>
         <CarouselItem class="relative flex flex-col items-center justify-between h-full">
@@ -135,43 +136,33 @@
           </div>
         </CarouselItem>
       </CarouselContent>
+
       <div class="absolute -bottom-28 left-0 right-0 px-4">
         <CarouselNext @click="handleNext" class="bg-primary-buttonBg hover:bg-fuchsia-400/50 w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
       </div>
-    </Carousel>
-
-    <!-- Три полоски над кнопкой -->
-    <div class="flex flex-row justify-center items-center gap-3 mt-9">
-      <div 
-        v-for="index in 3" 
-        :key="index" 
-        :class="['w-[55px] h-[3px] rounded-full', index - 1 === currentSlide ? 'bg-primary-buttonBg' : 'bg-neutral-700']">
+      
+      <!-- Три полоски над кнопкой -->
+      <div class="flex flex-row justify-center items-center gap-3 mt-9">
+        <div 
+          v-for="index in 3" 
+          :key="index" 
+          :class="['w-[55px] h-[3px] rounded-full', index - 1 === currentSlide ? 'bg-primary-buttonBg' : 'bg-neutral-700']">
+        </div>
       </div>
-    </div>
+    </Carousel>
   </div>
 
   <!-- Здесь нужен див верхняя граница которого, сольёться по цвету с фоном -->
-  <div class="div-bg absolute w-full m-w-[430px] -z-10 inset-0 pointer-events-none"></div>
+  <div class="div-bg absolute w-full max-w-md -z-10 inset-0 pointer-events-none mx-auto"></div>
 </template>
 
 <style scoped>
   /* Перенеси в PlayPage эти стили */
   .bg-img_landing {
-    width: 100%;
-    max-width: 430px;
-    height: auto;
-    /* height: 100vh; */
     background-image: url('@/shared/assets/images/Landing.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center -2px;
-  }
-
-  @media (max-width: 375px) {
-    .bg-img_landing {
-      /* height: 110vh; */
-      background-size: cover;
-    }
   }
 
   .div-bg {
