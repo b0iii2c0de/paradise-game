@@ -32,49 +32,49 @@
 </script> 
 
 <template>
-  <div class="bg-img_landing flex flex-col w-full max-w-md h-full relative">
-    <Carousel>
+  <div class="bg-img_landing flex flex-col w-full max-w-md h-screen relative">
+    <Carousel class="h-full">
       <!-- вернуться если будет урезаться на маленьких экранах -->
-      <CarouselContent class="pb-12 xs:pb-6 h-full">
-        <CarouselItem class="h-full">
-          <div class="flex-grow flex flex-col items-center justify-between">
-            <div class="max-w-[169px] w-full mt-[115px]">
-              <IconLogo class="w-full h-auto max-h-[55px]" />
-            </div>
+      <CarouselContent class="pb-12 h-full">
+        <CarouselItem class="flex flex-col items-center justify-between h-full">
+          <div class="max-w-[169px] w-full mt-[115px]">
+            <IconLogo class="w-full h-auto max-h-[55px]" />
+          </div>
 
-            <h2 class="font-semibold text-center mt-3 xs:text-xl text-lg">
-              REAL WORLD SIMULATION GAME
-            </h2>
-            <h2 class="font-semibold xs:text-xl text-lg mt-[-2px]">BASED ON AI</h2>
+          <h2 class="font-semibold text-center mt-3 xs:text-xl text-lg">
+            REAL WORLD SIMULATION GAME
+          </h2>
+          <h2 class="font-semibold xs:text-xl text-lg mt-[-2px]">BASED ON AI</h2>
 
-            <!-- Трейлер -->
-            <div class="w-full h-auto xs:px-8 px-4 mt-7 xs:mb-0 mb-5 aspect-video">
-              <iframe
-                src="https://www.youtube.com/embed/QdBZY2fkU-0"
-                title="Game Trailer"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-                class="w-full aspect-video rounded-2xl"
-              ></iframe>
-            </div>
+          <!-- Трейлер -->
+          <div class="w-full h-auto xs:px-8 px-4 mt-7 xs:mb-0 mb-5 aspect-video">
+            <iframe
+              src="https://www.youtube.com/embed/QdBZY2fkU-0"
+              title="Game Trailer"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              class="w-full aspect-video rounded-2xl"
+            ></iframe>
+          </div>
 
-            <!-- Иконки -->
-            <div
-              class="flex flex-row items-center justify-between px-12 -mt-1 max-w-[413px] w-full mx-auto"
-            >
-              <IconOA />
-              <IconXrp />
-              <IconUnreal class="w-10 h-10" />
-              <IconEpic class="w-8 h-9" />
-              <IconPlayfab />
-            </div>
+          <!-- Иконки -->
+          <div
+            class="flex flex-row items-center justify-between px-12 -mt-1 max-w-[413px] w-full mx-auto"
+          >
+            <IconOA />
+            <IconXrp />
+            <IconUnreal class="w-10 h-10" />
+            <IconEpic class="w-8 h-9" />
+            <IconPlayfab />
           </div>
         </CarouselItem>
         <CarouselItem class="relative flex flex-col items-center justify-between h-full">
           <h2 class="font-semibold xs:text-3xl text-2xl text-center mt-[7.2rem]">
             Play & Earn Real Money
           </h2>
+
+          <p class="font-semibold text-center mt-6 xs:text-[1.2rem] text-base">THE <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base">FIRST TOKEN</span> THAT HAS <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base">REAL VALUE</span></p>
 
           <div class="flex-grow flex flex-col justify-center items-center mt-[3.6rem]">
             <IconButton class="w-[14rem] h-[14rem]" />
@@ -137,16 +137,18 @@
         </CarouselItem>
       </CarouselContent>
 
-      <div class="absolute -bottom-28 left-0 right-0 px-4">
-        <CarouselNext @click="handleNext" class="bg-primary-buttonBg hover:bg-fuchsia-400/50 w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
-      </div>
-      
-      <!-- Три полоски над кнопкой -->
-      <div class="flex flex-row justify-center items-center gap-3 mt-9">
-        <div 
-          v-for="index in 3" 
-          :key="index" 
-          :class="['w-[55px] h-[3px] rounded-full', index - 1 === currentSlide ? 'bg-primary-buttonBg' : 'bg-neutral-700']">
+      <div class="fixed inset-x-0 bottom-4 max-w-md mx-auto">
+        <!-- Три полоски над кнопкой -->
+        <div class="flex flex-row justify-center items-center gap-3 mt-9">
+          <div 
+            v-for="index in 3" 
+            :key="index" 
+            :class="['w-[55px] h-[3px] rounded-full', index - 1 === currentSlide ? 'bg-primary-buttonBg' : 'bg-neutral-700']">
+          </div>
+        </div>
+
+        <div class="mt-7 px-4">
+          <CarouselNext @click="handleNext" class="w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
         </div>
       </div>
     </Carousel>
