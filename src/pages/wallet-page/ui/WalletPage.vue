@@ -9,13 +9,13 @@
 </script>
 
 <template>
-  <div class="flex flex-col justify-center w-full max-w-[430px] h-screen max-h-[34.3rem] mt-[4.5rem] px-4">
+  <div class="flex flex-col w-full max-w-md h-[calc(100vh-10rem)] mt-[4.5rem] px-4 overflow-y-auto">
     <div class="flex flex-col flex-shrink-0 pb-6">
       <h2 class="font-semibold xs:text-[1.4rem] text-xl">Wallet</h2>
       <p class="font-normal text-muted-foreground xs:text-base text-sm">Set up your wallet to receive rewards.</p>
     </div>
 
-    <div class="flex-grow">
+    <div class="flex-grow flex flex-col">
       <div class="border border-muted-foreground/5 rounded-2xl flex flex-col items-start justify-center py-3 px-4 mt-0 bg-muted-foreground/10">
         <div class="flex flex-col items-start justify-center gap-3">
           <h2 class="font-normal text-muted-foreground xs:text-base text-sm">Your Balance</h2>
@@ -55,7 +55,7 @@
     
     <!-- кнопка "вывести" не активна пока не привязан кошелёк,
      при нажатии вызывает модалку с предупреждением -->
-    <div class="flex-shrink-0 -mb-[80px]">
+    <div class="flex-shrink-0">
       <h2 class="font-normal text-muted-foreground xs:text-base text-sm text-center">Connect your wallet to withdraw your tokens.</h2>
       <Button variant="ghost" size="xl" class="mt-3 w-full rounded-2xl bg-background hover:bg-background xs:border-2 border border-primary-buttonBg hover:border-fuchsia-400/40 active:scale-95 transition-transform">
         <span class="font-semibold xs:text-base text-sm hover:text-fuchsia-400/40 text-primary-buttonBg">Withdrawal</span>

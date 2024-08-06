@@ -44,9 +44,9 @@
 </script>
 
 <template>
-  <footer class="w-full max-w-[430px] mx-auto bg-background">
-    <!-- полоска -->
-    <div class="mt-[94px] h-px bg-primary-foreground relative">
+  <footer class="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md z-20 bg-background">
+    <!-- полоска mt-[94px] -->
+    <div class="mt-3 h-px bg-primary-foreground relative">
       <!-- фиолетовая полоска поверх -->
       <div class="absolute bottom-0 left-0 h-full bg-fuchsia-400/70 transition-all duration-300"
        :style="indicatorStyle">
@@ -54,7 +54,7 @@
     </div>
 
     <!-- навигация -->
-    <div class="flex flex-col items-center pt-2">
+    <div class="flex flex-col items-center py-2">
       <nav ref="navRef" class="flex items-center justify-between w-full px-8 sm:px-6">
         <RouterLink to="/play" class="flex flex-col items-center gap-3" :class="{ 'text-fuchsia-400': currentRoute === '/play' }">
           <IconPlay class="w-7 h-auto" :class="{ 'text-fuchsia-400': currentRoute === '/play' }" />

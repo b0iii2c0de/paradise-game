@@ -16,8 +16,8 @@
 </script>
 
 <template>
-   <div class="flex flex-col justify-center items-center w-full max-w-[430px] h-full max-h-[35.8rem] mt-12 px-4">
-    <div class="overflow-auto -mb-[80px] custom-scrollbar">
+   <div class="flex flex-col w-full max-w-md min-h-screen mt-12 px-4">
+    <div class="overflow-auto flex-grow custom-scrollbar pb-20">
       <!-- Трейлер -->
       <div class="w-full h-auto mt-7 xs:mb-0 aspect-video">
         <iframe

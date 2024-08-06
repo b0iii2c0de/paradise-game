@@ -190,10 +190,9 @@
 </script>
 
 <template>
-  <!-- если что, поменяй h-screen на h-full/auto -->
-  <div class="flex flex-col justify-center w-full max-w-[430px] h-full max-h-[35.8rem] mt-12 px-4">
+  <div class="flex flex-col w-full max-w-md min-h-screen mt-12 px-4">
     <!-- список задач -->
-    <div class="flex flex-col overflow-y-auto flex-grow gap-3 -mb-[80px] custom-scrollbar">
+    <div class="flex flex-col overflow-y-auto flex-grow gap-3 custom-scrollbar">
       <div class="flex flex-col mt-6 mb-2">
         <h2 class="font-semibold xs:text-[1.4rem] text-xl">Tasks to do <span class="xs:text-xl text-lg">👋🏻</span></h2>
         <p class="font-normal text-muted-foreground xs:text-base text-sm">Finish these tasks to get more tokens.</p>
