@@ -38,6 +38,7 @@ module.exports = {
           foreground: "hsl(var(--primary-foreground))",
           modal: "hsl(var(--modal-bg))",
           buttonBg: "hsl(var(--button-pink))",
+          borderGradient: "var(--border-gradient)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

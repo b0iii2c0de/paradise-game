@@ -1,8 +1,10 @@
 <script setup lang="ts">
   import { ref } from 'vue';
-  import IconButton from '@/shared/assets/icons/IconButton.vue';
-  import IconVoltage from '@/shared/assets/icons/IconVoltage.vue';
-  import IconCross from '@/shared/assets/icons/IconCross.vue';
+  import { 
+    IconButtonOpt,
+    IconVoltage,
+    IconCross,
+  } from '@/shared/assets/icons';
   import { Progress } from '@/shared/ui/progress';
   import {
     AlertDialog,
@@ -54,25 +56,25 @@
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center w-full max-w-md min-h-screen">
-    <!-- контейнер для главной кнопки -->
-    <div class="gradient-bg flex flex-col flex-grow w-full mt-[5.5rem] overflow-y-auto">
-      <button @click="increment" class="">
-        <div class="pt-[56px]">
-          <div class="">
-            <p class="text-stone-400 text-centerW">Your Balance</p>
-        
-            <div class="pt-2 flex items-center justify-center">
-              <IconButton class="w-[24px] h-[24px]" />
-              <span class="text-3xl font-bold pl-3">{{ count }}</span>
-            </div>
-          </div>
-          
+  <div class="flex flex-col w-full max-w-md min-h-screen">
+    <div class="gradient-bg flex flex-col w-full h-full mt-20">
+      <div class="mt-14 flex flex-col">
+        <p class="text-stone-400 text-center">Your Balance</p>
+    
+        <div class="pt-2 flex items-center justify-center">
+          <IconButtonOpt class="w-7 h-7" />
+          <span class="text-3xl font-bold pl-3">{{ count }}</span>
+        </div>
+      </div>
+
+      <!-- контейнер для главной кнопки -->
+      <div class="flex flex-col flex-grow items-center h-full">
+        <button @click="increment">
           <!-- главная кнопка-монетка -->
           <!--  добавь при необходимости в родительский контейнер параметр overflow-hidden. -->
-          <div class="pt-7 flex justify-center w-full">
+          <div class="my-6 flex justify-center w-full">
             <div class="relative">
-              <IconButton class="relative z-10 active:scale-95 transition-transform" />
+              <IconButtonOpt class="relative w-52 h-52 z-10 active:scale-95 transition-transform" />
               
               <!-- SVG для эффекта волны -->
               <svg v-for="wave in waves" :key="wave" class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%]">
@@ -83,7 +85,7 @@
               </svg>
 
               <!-- тень монетки -->
-              <div class="absolute -bottom-[40px] left-1 right-1 h-[10px] bg-violet-400/30 blur-lg rounded-full z-0"></div>
+              <div class="absolute -bottom-[40px] left-1 right-1 h-4 gradient-shadow blur-md rounded-full z-0"></div>
 
               <!-- циферки -->
               <div v-for="number in floatingNumbers" :key="number.id" 
@@ -96,10 +98,11 @@
               </div>
             </div>
           </div> 
-        </div>  
-      </button>
-
-      <div class="pt-[86px] px-[1.2rem] flex flex-col gap-2">
+        </button>
+      </div>
+      
+      <!-- progress bar -->
+      <div class="pt-20 small_mobile px-5 flex flex-col gap-2">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-1">
             <IconVoltage />
@@ -112,7 +115,7 @@
 
       <!-- Кнопка открывает модалку -->
       <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
-      <button @click="openModal" class="pt-[10px] pb-[20px] px-[15px] active:scale-95 transition-transform">
+      <button @click="openModal" class="mt-3 mb-5 px-5 active:scale-95 transition-transform">
         <div class="bg-img w-full h-[7.4rem] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
       </button>
 
@@ -133,19 +136,48 @@
           </AlertDialogHeader>
         </AlertDialogContent>
       </AlertDialog>
-
     </div>
   </div>
-  
 </template>
 
 <style scoped>
   .gradient-bg {
-    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(80, 21, 177, 0.5) 56.27%, rgba(0, 0, 0, 0.5) 100%), radial-gradient(88.83% 59.06% at 50% 40.94%, rgba(161, 93, 202, 0.3) 0%, rgba(10, 10, 11, 0) 100%);
+    background-image: 
+      linear-gradient(180deg, 
+        rgba(0, 0, 0, 1) 5%, 
+        rgba(52, 10, 118, 0.5) 40%, 
+        rgba(0, 0, 0, 1) 80%
+      ), 
+      radial-gradient(88.83% 59.06% at 50% 40.94%, 
+        rgba(191, 151, 216, 0.3) 10%, 
+        rgba(10, 10, 11, 0) 500%
+      );
+  }
+
+  .gradient-shadow {
+    background: 
+      linear-gradient(270deg, 
+        rgba(158, 85, 203, 0) 4.16%, 
+        rgba(87, 49, 117, 0.6) 52.75%, 
+        rgba(90, 57, 133, 0) 100%);
+  }
+
+  .gradient-progress {
+    background: 
+      linear-gradient(90deg, 
+      #FBB5FD 0%, 
+      #D463E8 50.5%, 
+      #2F39A3 100%);
   }
 
   .bg-img {
     background-image: url('@/shared/assets/images/Banner.png');
+  }
+
+  @media screen and (max-height: 670px) {
+    .small_mobile {
+      padding-top: 1rem;
+    }
   }
 
   @keyframes float-up {

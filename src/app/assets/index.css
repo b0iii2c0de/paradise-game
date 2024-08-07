@@ -54,7 +54,8 @@
 
     /* colors for gradients */
     --modal-bg: 0, 0%, 7%;
-    --button-pink: 281, 49%, 54%; 
+    --button-pink: 281, 49%, 54%;
+    --border-gradient: linear-gradient(90deg, #5B386C 0%, #121213 100%);
     --gradient-color2: 240, 4%, 5%;
     --gradient-color3: 277, 51%, 58%;
     --gradient-color4: 240, 5%, 4%;

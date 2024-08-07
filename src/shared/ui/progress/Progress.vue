@@ -32,8 +32,18 @@
     "
   >
     <ProgressIndicator
-      class="h-full w-full flex-1 bg-fuchsia-400/70 transition-all"
+      class="h-full w-full flex-1 gradient-progress transition-all"
       :style="`transform: translateX(-${100 - (props.modelValue ?? 0)}%);`"
     />
   </ProgressRoot>
 </template>
+
+<style scoped>
+  .gradient-progress {
+    background: 
+      linear-gradient(90deg, 
+      #FBB5FD 0%, 
+      #D463E8 50.5%, 
+      #2F39A3 100%);
+  }
+</style>

@@ -203,7 +203,7 @@
         :key="task.id"
         class="active:scale-95 transition-transform"
       >
-        <div class="flex flex-row items-center gap-2 h-20 py-3 px-3 border-2 border-fuchsia-400/20 !rounded-[0.8rem] bg-neutral-800/40 hover:neutral-800/50 transition-colors">
+        <div class="flex flex-row items-center gap-2 h-20 py-3 px-3 border-2 gradient-border rounded-2xl bg-neutral-800/40 hover:neutral-800/50 transition-colors">
           <div class="relative border-2 !rounded-[0.5rem] w-14 h-14 flex flex-shrink-0 items-center justify-center p-3">
             <component :is="getIconBackground(task.icon)" class="absolute w-14 h-14" />
             <component 
@@ -276,6 +276,11 @@
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: transparent;
+  }
+
+  .gradient-border {
+    border-image: var(--border-gradient) 1;
+    border-radius: 1rem;
   }
 
   /* .icon-aura {
