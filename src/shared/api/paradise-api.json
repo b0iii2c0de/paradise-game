@@ -1,0 +1,270 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully logged in",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Telegram init data is not valid by schema",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Telegram init data is malformed"
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "operationId": "AuthController_refreshAccessToken",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Successfully refreshed access token"
+          },
+          "401": {
+            "description": "Refresh token expired"
+          }
+        },
+        "tags": [
+          "auth"
+        ]
+      }
+    },
+    "/users/address": {
+      "put": {
+        "operationId": "UsersController_setAddress",
+        "summary": "",
+        "description": "Sets to the user given XRP address, between 25 and 35 characters long",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Given address successfully set to the user"
+          },
+          "400": {
+            "description": "Given address is not 25-35 characters long, or it is not a string",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Given address already exists"
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/balance": {
+      "get": {
+        "operationId": "UsersController_getUserBalance",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/daily-visit/claim": {
+      "post": {
+        "operationId": "UsersController_dailyVisit",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/refill": {
+      "post": {
+        "operationId": "UsersController_refillEnergy",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/users/daily-visit": {
+      "get": {
+        "operationId": "UsersController_getLastDailyVisit",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "users"
+        ]
+      }
+    },
+    "/tasks": {
+      "get": {
+        "operationId": "TasksController_getUserTasks",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/tasks/{id}/completed": {
+      "post": {
+        "operationId": "TasksController_completeTask",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "Paradise API OpenAPI documentation",
+    "description": "",
+    "version": "1.0",
+    "contact": {
+
+    }
+  },
+  "tags": [
+    {
+      "name": "auth",
+      "description": ""
+    },
+    {
+      "name": "users",
+      "description": ""
+    }
+  ],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "initData": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "initData"
+        ]
+      },
+      "LoginResponseDto": {
+        "type": "object",
+        "properties": {
+          "newUser": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "newUser"
+        ]
+      },
+      "BadRequestDto": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "error": {
+            "type": "string"
+          },
+          "statusCode": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "message",
+          "error",
+          "statusCode"
+        ]
+      },
+      "AddressDto": {
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "address"
+        ]
+      }
+    }
+  }
+}

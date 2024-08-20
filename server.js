@@ -1,3 +1,5 @@
+// удалить, относиться к tailscale
+
 import { createServer } from 'https'
 import { readFileSync } from 'fs'
 import { createServer as createViteServer } from 'vite'

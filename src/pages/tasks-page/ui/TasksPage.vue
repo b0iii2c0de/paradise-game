@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import { ref, computed } from 'vue'
   import type { Task } from '@/entities/tasks'
-  import { 
+  import {
     IconBgPurple,
     IconBgGreen,
     IconTelegram,
@@ -17,22 +17,22 @@
     IconButton,
     IconHand,
     IconDad,
-    IconCross,
+    IconCross
   } from '@/shared/assets/icons'
   import { Button } from '@/shared/ui/button'
   import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from '@/shared/ui/alert-dialog'
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger
+  } from '@/shared/ui/alert-dialog'
 
-    /**
+  /**
    * TODO: Рефакторинг по Feature-Sliced Design
    * 1. Создать директорию src/features/taskManagement
    * 2. Вынести логику управления задачами в model/store.ts
@@ -65,127 +65,125 @@
       title: 'Daily visit',
       reward: 5000,
       completed: false,
-      claimable: true,
+      claimable: true
     },
     {
       id: 2,
       icon: 'telegram',
       title: 'Subscribe to the Telegram channel',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 3,
       icon: 'telegram',
       title: 'Join our Telegram chat',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 4,
       icon: 'x',
       title: 'Subscribe to the X (Twitter)',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 5,
       icon: 'discord',
       title: 'Join our Discord',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 6,
       icon: 'youtube',
       title: 'Subscribe to our YouTube',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 7,
       icon: 'x',
       title: 'RT and Like the pinned post on X',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 8,
       icon: 'x',
       title: 'RT and Like a post on X',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 9,
       icon: 'web',
       title: 'Visit the website',
       reward: 10000,
-      completed: false,
+      completed: false
     },
     {
       id: 10,
       icon: 'youtube',
       title: 'Watch the trailer to the end, like it',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 11,
       icon: 'xwar',
       title: 'Join X-WAR',
       reward: 50000,
-      completed: false,
+      completed: false
     },
     {
       id: 12,
       icon: 'daddy',
       title: 'Join DADDY',
       reward: 50000,
-      completed: false,
+      completed: false
     },
     {
       id: 13,
       icon: 'xrp',
       title: 'Add an XRP wallet',
       reward: 100000,
-      completed: false,
+      completed: false
     },
     {
       id: 14,
       icon: 'xrp',
       title: 'Add Trustline',
       reward: 200000,
-      completed: false,
+      completed: false
     },
     {
       id: 15,
       icon: 'cg',
       title: 'Add $PAR to Wishlist on CoinGecko',
       reward: 25000,
-      completed: false,
+      completed: false
     },
     {
       id: 16,
       icon: 'cmc',
       title: 'Add $PAR to Wishlist on CoinMarketCap, join the community',
       reward: 50000,
-      completed: false,
+      completed: false
     },
     {
       id: 17,
       icon: 'telegram',
       title: 'Subscribe to the XRP news',
       reward: 25000,
-      completed: false,
-    },
+      completed: false
+    }
   ])
 
-  const purpleBackgroundIcons = ['hand', 'daddy', 'youtube', 'web', 'xwar', 'xrp'];
+  const purpleBackgroundIcons = ['hand', 'daddy', 'youtube', 'web', 'xwar', 'xrp']
   const getIconBackground = (icon: string) => {
-    return purpleBackgroundIcons.includes(icon)
-      ? iconMap.bgPurple 
-      : iconMap.bgGreen;
+    return purpleBackgroundIcons.includes(icon) ? iconMap.bgPurple : iconMap.bgGreen
   }
 </script>
 
@@ -194,36 +192,37 @@
     <!-- список задач -->
     <div class="flex flex-col overflow-y-auto flex-grow gap-3 custom-scrollbar">
       <div class="flex flex-col mt-6 mb-2">
-        <h2 class="font-semibold xs:text-[1.4rem] text-xl">Tasks to do <span class="xs:text-xl text-lg">👋🏻</span></h2>
-        <p class="font-normal text-muted-foreground xs:text-base text-sm">Finish these tasks to get more tokens.</p>
+        <h2 class="font-semibold xs:text-[1.4rem] text-xl">
+          Tasks to do <span class="xs:text-xl text-lg">👋🏻</span>
+        </h2>
+        <p class="font-normal text-muted-foreground xs:text-base text-sm">
+          Finish these tasks to get more tokens.
+        </p>
       </div>
 
-      <div 
-        v-for="task in tasksToDo" 
-        :key="task.id"
-        class="active:scale-95 transition-transform"
-      >
-        <div class="flex flex-row items-center gap-2 h-20 py-3 px-3 border-2 gradient-border rounded-2xl bg-neutral-800/40 hover:neutral-800/50 transition-colors">
-          <div class="relative border-2 !rounded-[0.5rem] w-14 h-14 flex flex-shrink-0 items-center justify-center p-3">
+      <div v-for="task in tasksToDo" :key="task.id" class="active:scale-95 transition-transform">
+        <div
+          class="flex flex-row items-center gap-2 h-20 py-3 px-3 border-2 gradient-border rounded-2xl bg-neutral-800/40 hover:neutral-800/50 transition-colors"
+        >
+          <div
+            class="relative border-2 !rounded-[0.5rem] w-14 h-14 flex flex-shrink-0 items-center justify-center p-3"
+          >
             <component :is="getIconBackground(task.icon)" class="absolute w-14 h-14" />
-            <component 
-              :is="iconMap[task.icon as keyof typeof iconMap]" 
-              class="z-10 w-7 h-7"
-            /> 
+            <component :is="iconMap[task.icon as keyof typeof iconMap]" class="z-10 w-7 h-7" />
           </div>
 
           <!-- почитай про flex-grow & flex-shrink и как они работают вместе -->
           <div class="flex flex-col gap-1 flex-grow overflow-hidden pl-3">
             <h2 class="font-semibold xs:text-base text-sm truncate">{{ task.title }}</h2>
             <div class="flex flex-row items-center gap-2">
-              <IconButton class="w-5 h-5"/>
+              <IconButton class="w-5 h-5" />
               <span class="font-medium">{{ task.reward }}</span>
             </div>
           </div>
 
-          <Button 
+          <Button
             v-if="task.claimable"
-            variant="secondary" 
+            variant="secondary"
             size="sm"
             class="flex-shrink-0 bg-primary-buttonBg hover:bg-fuchsia-400/50 xs:w-[8.8rem] w-24 rounded-2xl"
           >
@@ -249,7 +248,8 @@
             We are announcing a drawing for the user who invites the most referrals!
           </AlertDialogDescription>
           <AlertDialogDescription class="text-fuchsia-400">
-            We are increasing the award to 8,000 USDT for first place, 1,500 USDT for second place and 500 USDT for third place.
+            We are increasing the award to 8,000 USDT for first place, 1,500 USDT for second place
+            and 500 USDT for third place.
           </AlertDialogDescription>
         </AlertDialogHeader>
       </AlertDialogContent>
@@ -291,5 +291,4 @@
   .icon-glow {
     filter: drop-shadow(0 0 4px currentColor);
   } */
-
 </style>

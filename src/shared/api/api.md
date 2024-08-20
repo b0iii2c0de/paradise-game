@@ -1,56 +1,32 @@
-эндпоинт и модель из alpha-centauri-api.json:
+### эндпойнт и модель из paradise-api.json:
 
-/app/init (POST):
+/auth/login (POST):
 
-Инициализирует приложение
-Запрос: AppInitRequest (данные и query)
-Ответ: AuthResultModel (токен и ID пользователя)
-/app/time (GET):
+Эндпойнт для авторизации пользователя
+Принимает LoginDto с полем initData (строка)
+Возвращает LoginResponseDto с полем newUser (булево)
+/auth/refresh (POST):
 
-Возвращает текущее время сервера
-Ответ: строка в формате date-span
-/twitter-tasks/{taskId}/intent-link (GET):
+Эндпойнт для обновления токена доступа
+Не требует входных данных
+Возвращает новый токен доступа
+/users/address (PUT):
 
-Получает ссылку для Twitter-задачи
-Параметр: taskId (UUID)
-Ответ: строка (ссылка)
-/users/assign-twitter-user (POST):
+Эндпойнт для установки XRP адреса пользователя
+Принимает AddressDto с полем address (строка)
+Устанавливает указанный XRP адрес для пользователя
+Модели:
 
-Привязывает Twitter-аккаунт к пользователю
-Параметры: Id и TwitterId
-/user-friends (GET):
+LoginDto:
 
-Получает список друзей пользователя
-Ответ: GetMyFriendsModel
-/tap (POST):
+Содержит поле initData (строка) для данных инициализации
+LoginResponseDto:
 
-Регистрирует тап пользователя
-Запрос: AddTapModel
-Ответ: GetPointModel
-/point-boost (POST):
+Содержит поле newUser (булево), указывающее, новый ли это пользователь
+BadRequestDto:
 
-Активирует буст очков
-Ответ: GetPointModel
-/zone-boost (POST):
+Модель для ошибок с полями message (объект), error (строка) и statusCode (число)
+AddressDto:
 
-Активирует буст зоны
-Ответ: GetPointModel
-/progress (GET):
-
-Получает прогресс пользователя
-Ответ: GetPointModel
-/user-missions (GET):
-
-Получает список миссий пользователя
-Ответ: GetMyMissionsModel
-/user-missions/{missionId} (GET):
-
-Получает детали конкретной миссии
-Параметр: missionId (UUID)
-Ответ: GetMyMissionDetailsModel
-/user-missions/run (POST):
-
-Запускает выполнение миссии
-Параметр: missionId (UUID)
-Ответ: boolean (успех/неудача)
-Эти эндпоинты охватывают функциональность инициализации, управления пользователями, друзьями, игровой механики (тапы, бусты) и системы миссий.
+Содержит поле address (строка) для XRP адреса
+Эти эндпойнты и модели обеспечивают базовую функциональность для авторизации, обновления токена и управления адресом пользователя в системе Paradise.

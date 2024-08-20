@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { ref } from 'vue';
+  import { usePlayStore } from '@/entities/play';
   import { 
     IconButtonOpt,
     IconVoltage,
@@ -18,36 +19,64 @@
   const count = ref(0);
   const isModalOpen = ref(false);
   const emit = defineEmits(['updateCount']);
-  const waves = ref<number[]>([]);
-  let waveCount = 0;
-  const floatingNumbers = ref<{ id: number; x: number; y: number }[]>([]);
+  // const waves = ref<number[]>([]);
+  // let waveCount = 0;
+  // const LEVELS: [] = []; 
+  const playStore = usePlayStore();
+  const clicks = ref<{ id: number; x: number; y: number }[]>([]);
 
   const increment = (event: MouseEvent) => {
-    count.value += 10;
+    count.value += 1;
     emit('updateCount', count.value);
-    addWave();
-    addFloatingNumber(event);
+    handleCardClick(event);
+    // addWave();
   };
 
-  const addWave = () => {
-    waves.value.push(waveCount++);
-  };
-
-  const removeWave = (index: number) => {
-    waves.value = waves.value.filter(i => i !== index);
-  };
-
-  const addFloatingNumber = (event: MouseEvent) => {
-    // (event.currentTarget as HTMLElement
-    const rect = (event.target as HTMLElement).getBoundingClientRect();
-    const x = event.clientX - rect.left;
-    const y = event.clientY - rect.top;
-    const id = Date.now();
-    floatingNumbers.value.push({ id, x, y });
+  const handleCardClick = (e: MouseEvent) => {
+    if (playStore.energy - playStore.pointsPerClick < 0) return;
+    const card = e.currentTarget as HTMLElement;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `perspective(1000px) rotateX(${-y / 7}deg) rotateY(${x / 7}deg)`;
     setTimeout(() => {
-      floatingNumbers.value = floatingNumbers.value.filter(n => n.id !== id);
+      card.style.transform = '';
+    }, 100);
+    playStore.updateLastClickTimestamp();
+    playStore.clickTriggered();
+    const clickId = Date.now();
+    clicks.value.push({ id: clickId, x: e.pageX, y: e.pageY });
+    setTimeout(() => {
+      clicks.value = clicks.value.filter(click => click.id !== clickId);
     }, 1000);
   };
+
+  // const handleAnimationEnd = (id: number) => {
+  //   clicks.value = clicks.value.filter(click => click.id !== id);
+  // };
+
+  // const calculateProgress = () => {
+  //   if (playStore.playLevelIndex >= LEVELS.length - 1) {
+  //     return 100;
+  //   }
+  //   const currentLevelMin = LEVELS[playStore.playLevelIndex].minPoints;
+  //   const nextLevelMin = LEVELS[playStore.playLevelIndex + 1].minPoints;
+  //   const progress = ((playStore.points - currentLevelMin) / (nextLevelMin - currentLevelMin)) * 100;
+  //   return Math.min(progress, 100);
+  // };
+
+  // const handleViewChange = (view) => {
+  //   // Implement view change logic here
+  // };
+
+
+  // const addWave = () => {
+  //   waves.value.push(waveCount++);
+  // };
+
+  // const removeWave = (index: number) => {
+  //   waves.value = waves.value.filter(i => i !== index);
+  // };
 
   const openModal = () => {
     isModalOpen.value = true;
@@ -71,31 +100,21 @@
       <div class="flex flex-col flex-grow items-center h-full">
         <button @click="increment">
           <!-- главная кнопка-монетка -->
-          <!--  добавь при необходимости в родительский контейнер параметр overflow-hidden. -->
           <div class="my-6 flex justify-center w-full">
             <div class="relative">
-              <IconButtonOpt class="relative w-52 h-52 z-10 active:scale-95 transition-transform" />
+              <!-- w-52 h-52 -->
+              <IconButtonOpt class="relative w-60 h-60 z-10" />
               
               <!-- SVG для эффекта волны -->
-              <svg v-for="wave in waves" :key="wave" class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%]">
+              <!-- <svg v-for="wave in waves" :key="wave" class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%]">
                 <circle cx="50%" cy="50%" r="0%" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="2">
                   <animate attributeName="r" from="0%" to="50%" dur="1s" begin="0s" fill="freeze" @endEvent="removeWave(wave)" />
                   <animate attributeName="opacity" from="1" to="0" dur="1s" begin="0s" fill="freeze" />
                 </circle>
-              </svg>
+              </svg> -->
 
               <!-- тень монетки -->
               <div class="absolute -bottom-[40px] left-1 right-1 h-4 gradient-shadow blur-md rounded-full z-0"></div>
-
-              <!-- циферки -->
-              <div v-for="number in floatingNumbers" :key="number.id" 
-                class="float-numbs absolute pointer-events-none text-white font-bold text-2xl z-20"
-                :style="{
-                  left: `${number.x}px`,
-                  top: `${number.y}px`,
-                }">
-                  +10
-              </div>
             </div>
           </div> 
         </button>
@@ -136,6 +155,17 @@
           </AlertDialogHeader>
         </AlertDialogContent>
       </AlertDialog>
+    </div>
+
+    <!-- @animationend="handleAnimationEnd(click.id) в атрибутах ниже" -->
+    <div v-for="click in clicks" 
+      :key="click.id" 
+      class="float-numbs z-20 absolute text-3xl font-bold text-white pointer-events-none flex justify-center" 
+      :style="{ 
+        top: `${click.y - 42}px`, 
+        left: `${click.x - 28}px`,
+      }">
+        {{ playStore.pointsPerClick }}
     </div>
   </div>
 </template>
