@@ -85,9 +85,9 @@
 </script>
 
 <template>
-  <div class="flex flex-col w-full max-w-md min-h-screen">
+  <div class="flex flex-col w-full max-w-xl min-h-screen">
     <div class="gradient-bg flex flex-col w-full h-full mt-20">
-      <div class="mt-14 flex flex-col">
+      <div class="title_sm mt-14 flex flex-col">
         <p class="text-stone-400 text-center">Your Balance</p>
     
         <div class="pt-2 flex items-center justify-center">
@@ -121,7 +121,7 @@
       </div>
       
       <!-- progress bar -->
-      <div class="pt-20 small_mobile px-5 flex flex-col gap-2">
+      <div class="pt-20 progress_bar px-5 flex flex-col gap-2">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-1">
             <IconVoltage />
@@ -135,7 +135,7 @@
       <!-- Кнопка открывает модалку -->
       <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
       <button @click="openModal" class="mt-3 mb-5 px-5 active:scale-95 transition-transform">
-        <div class="bg-img w-full h-[7.4rem] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
+        <div class="bg-img w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
       </button>
 
       <!-- модалка -->
@@ -165,7 +165,7 @@
         top: `${click.y - 42}px`, 
         left: `${click.x - 28}px`,
       }">
-        {{ playStore.pointsPerClick }}
+        +{{ playStore.pointsPerClick }}
     </div>
   </div>
 </template>
@@ -200,13 +200,19 @@
       #2F39A3 100%);
   }
 
+  @media screen and (max-height: 670px) {
+    .progress_bar {
+      padding-top: 1rem;
+    }
+  }
+
   .bg-img {
     background-image: url('@/shared/assets/images/Banner.png');
   }
 
   @media screen and (max-height: 670px) {
-    .small_mobile {
-      padding-top: 1rem;
+    .title_sm {
+      margin-top: 0%;
     }
   }
 

@@ -44,7 +44,7 @@
 </script>
 
 <template>
-  <footer class="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md z-20 bg-background">
+  <footer class="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-xl z-20 bg-background">
     <!-- полоска mt-[94px] -->
     <div class="mt-3 h-px bg-primary-foreground relative">
       <!-- фиолетовая полоска поверх -->
