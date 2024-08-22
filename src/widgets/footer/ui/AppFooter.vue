@@ -49,7 +49,7 @@
   <div class="flex justify-center">
     <footer class="flex flex-col w-full max-w-xl z-20 bg-background">
       <!-- фиолетовая полоска поверх -->
-      <div class="mt-3 h-px bg-primary-foreground relative">
+      <div class="mt-2 h-px bg-primary-foreground relative">
         <div class="absolute bottom-0 left-0 h-full bg-fuchsia-400/70 transition-all duration-300"
         :style="indicatorStyle">
         </div>
