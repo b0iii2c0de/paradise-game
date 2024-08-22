@@ -5,7 +5,7 @@ import { PlayPage } from '@/pages/play-page';
 import { TasksPage } from '@/pages/tasks-page';
 import { FriendsPage } from '@/pages/friends-page';
 import { WalletPage } from '@/pages/wallet-page';
-import { AboutPage } from '@/pages/about-page';
+import { PortalPage } from '@/pages/portal-page';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -36,9 +36,9 @@ const router = createRouter({
       component: WalletPage
     },
     {
-      path: '/about',
-      name: 'about',
-      component: AboutPage
+      path: '/portal',
+      name: 'portal',
+      component: PortalPage
     }
   ]
 })

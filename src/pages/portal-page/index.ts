@@ -1,0 +1,1 @@
+export { default as PortalPage } from './ui/PortalPage.vue';

@@ -31,3 +31,8 @@ export { default as IconLevelFirst } from './IconLevelFirst.vue';
 export { default as IconLevelSecond } from './IconLevelSecond.vue';
 export { default as IconLevelThird } from './IconLevelThird.vue';
 export { default as IconCheckmark } from './IconCheckmark.vue';
+export { default as IconPlay } from './IconPlay.vue';
+export { default as IconTasks } from './IconTasks.vue';
+export { default as IconFriends } from './IconFriends.vue';
+export { default as IconWallet } from './IconWallet.vue';
+export { default as IconPortal } from './IconPortal.vue';

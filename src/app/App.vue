@@ -13,10 +13,11 @@
 </script>
 
 <template>
-  <Header :count="count" v-if="route.path !== '/'" />
-  <div class="flex justify-center items-center">
-    <!-- <PlayPage @update-count="updateCount"/> -->
-    <RouterView @update-count="updateCount"/>
+  <div class="w-full h-full flex flex-col relative">
+    <Header :count="count" v-if="route.path !== '/'" />
+    <div class="flex flex-grow flex-shrink w-full h-full justify-center">
+      <RouterView @update-count="updateCount"/>
+    </div>
+    <Footer v-if="route.path !== '/'" />
   </div>
-  <Footer v-if="route.path !== '/'" />
 </template>
