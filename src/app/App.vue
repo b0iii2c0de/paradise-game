@@ -15,7 +15,7 @@
 <template>
   <div class="w-full h-full flex flex-col relative">
     <Header :count="count" v-if="route.path !== '/'" />
-    <div class="flex flex-grow flex-shrink w-full h-full justify-center">
+    <div class="flex flex-grow flex-shrink w-full h-full min-h-0 justify-center">
       <RouterView @update-count="updateCount"/>
     </div>
     <Footer v-if="route.path !== '/'" />
