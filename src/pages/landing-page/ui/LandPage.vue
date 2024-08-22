@@ -32,10 +32,11 @@
 </script> 
 
 <template>
-  <div class="bg-img_landing flex flex-col w-full max-w-md h-screen relative">
-    <Carousel class="h-full">
+  <div class="fixed inset-0 flex flex-col w-full max-w-xl mx-auto overflow-auto">
+    <Carousel class="min-h-full bg-img_landing flex flex-shrink-0 flex-col">
       <!-- вернуться если будет урезаться на маленьких экранах -->
-      <CarouselContent class="pb-12 h-full">
+
+      <CarouselContent class="min-h-full">
         <CarouselItem class="flex flex-col items-center justify-between h-full">
           <div class="max-w-[169px] w-full mt-[115px]">
             <IconLogo class="w-full h-auto max-h-[55px]" />
@@ -137,7 +138,9 @@
         </CarouselItem>
       </CarouselContent>
 
-      <div class="fixed inset-x-0 bottom-4 max-w-md mx-auto">
+      <div class="flex-grow"></div>
+
+      <div class="w-full max-w-xl mx-auto">
         <!-- Три полоски над кнопкой -->
         <div class="flex flex-row justify-center items-center gap-3 mt-9">
           <div 
@@ -147,7 +150,7 @@
           </div>
         </div>
 
-        <div class="mt-7 px-4">
+        <div class="my-6 px-4">
           <CarouselNext @click="handleNext" class="w-full rounded-2xl h-14 active:scale-95 transition-transform"/>
         </div>
       </div>
@@ -155,7 +158,7 @@
   </div>
 
   <!-- Здесь нужен див верхняя граница которого, сольёться по цвету с фоном -->
-  <div class="div-bg absolute w-full max-w-md -z-10 inset-0 pointer-events-none mx-auto"></div>
+  <div class="div-bg absolute w-full max-w-xl -z-10 inset-0 pointer-events-none mx-auto"> </div>
 </template>
 
 <style scoped>

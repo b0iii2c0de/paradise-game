@@ -188,9 +188,8 @@
 </script>
 
 <template>
-  <div class="flex flex-col w-full max-w-md min-h-screen mt-12 px-4">
     <!-- список задач -->
-    <div class="flex flex-col overflow-y-auto flex-grow gap-3 custom-scrollbar">
+    <div class="flex flex-col gap-3 px-5">
       <div class="flex flex-col mt-6 mb-2">
         <h2 class="font-semibold xs:text-[1.4rem] text-xl">
           Tasks to do <span class="xs:text-xl text-lg">👋🏻</span>
@@ -254,30 +253,9 @@
         </AlertDialogHeader>
       </AlertDialogContent>
     </AlertDialog>
-  </div>
 </template>
 
 <style scoped>
-  .custom-scrollbar {
-    overflow-y: overlay;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 0px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: transparent;
-  }
-
   .gradient-border {
     border-image: var(--border-gradient) 1;
     border-radius: 1rem;

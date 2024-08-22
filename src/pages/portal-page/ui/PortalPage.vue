@@ -16,8 +16,8 @@
 </script>
 
 <template>
-   <div class="flex flex-col w-full max-w-md min-h-screen mt-12 px-4">
-    <div class="overflow-auto flex-grow custom-scrollbar pb-20">
+   <div class="flex flex-col px-5">
+
       <!-- Трейлер -->
       <div class="w-full h-auto mt-7 xs:mb-0 aspect-video">
         <iframe
@@ -90,28 +90,5 @@
           You will be able to exchange your in-game points for $PAR.
         </p>
       </div>
-    </div>
   </div>
 </template>
-
-<style scoped>
-  .custom-scrollbar {
-    overflow-y: overlay;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 0px;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
-
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: transparent;
-  }
-</style>

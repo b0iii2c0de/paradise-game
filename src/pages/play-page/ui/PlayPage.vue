@@ -86,9 +86,8 @@
 </script>
 
 <template>
-  <div class="flex flex-col w-full h-full max-w-xl min-h-0 overflow-auto">
-    <div class="gradient-bg flex flex-col flex-grow">
-      <div class="flex flex-col justify-center flex-grow">
+    <div class="gradient-bg flex flex-col flex-grow flex-shrink pt-8">
+      <div class="flex flex-col justify-center flex-grow flex-shrink min-h-0">
         <!-- title -->
         <div class="flex flex-col">
           <h1 class="text-muted-foreground text-center">Your Balance</h1>
@@ -100,8 +99,8 @@
         </div>
 
         <!-- контейнер для главной кнопки -->
-        <div class="flex justify-center">
-          <button @click="increment">
+        <button @mousedown="increment" class="flex justify-center">
+          <div>
             <!-- главная кнопка-монетка -->
               <div class="my-6 relative">
                 <IconButtonOpt class="w-60 h-60" />
@@ -109,8 +108,8 @@
                 <!-- тень монетки -->
                 <div class="absolute -bottom-[40px] left-1 right-1 h-4 gradient-shadow blur-md rounded-full z-0"></div>
               </div>
-          </button>
-        </div>
+          </div>
+        </button>
       </div>
 
       <div class="flex flex-col flex-shrink-0">
@@ -131,13 +130,16 @@
           <Progress :model-value="60" />
         </div>
 
-        <!-- Кнопка открывает модалку -->
-        <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
-        <button @click="openModal" class="my-3 px-5 active:scale-95 transition-transform">
-          <div class="bg-img max-w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
-        </button>
+
       </div>
+
+          <!-- Кнопка открывает модалку -->
+    <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
+    <button @click="openModal" class="my-3 px-5 active:scale-95 transition-transform">
+      <div class="bg-img max-w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
+    </button>
     </div>
+
 
     <!-- модалка -->
     <AlertDialog v-model:open="isModalOpen">
@@ -167,7 +169,6 @@
       }">
         +{{ playStore.pointsPerClick }}
     </div>
-  </div>
 </template>
 
 <style scoped>
