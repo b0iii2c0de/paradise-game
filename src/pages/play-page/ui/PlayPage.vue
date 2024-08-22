@@ -4,6 +4,7 @@
   import { 
     IconButtonOpt,
     IconVoltage,
+    IconRocket,
     IconCross,
   } from '@/shared/assets/icons';
   import { Progress } from '@/shared/ui/progress';
@@ -126,8 +127,13 @@
           <div class="flex items-center gap-1">
             <IconVoltage />
             <span class="font-semibold">974</span>
+            <span class="text-muted-foreground text-sm">/10000</span>
           </div>
-          <span class="text-muted-foreground">/10000</span>
+          <!-- это кнопка на другой экран -->
+          <div class="flex items-center gap-1">
+            <IconRocket />
+            <span class="font-semibold">Boost</span>
+          </div>
         </div>
         <Progress :model-value="60" />
       </div>
@@ -135,7 +141,7 @@
       <!-- Кнопка открывает модалку -->
       <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
       <button @click="openModal" class="mt-3 mb-5 px-5 active:scale-95 transition-transform">
-        <div class="bg-img w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
+        <div class="bg-img max-w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
       </button>
 
       <!-- модалка -->
@@ -200,17 +206,17 @@
       #2F39A3 100%);
   }
 
-  @media screen and (max-height: 670px) {
+  @media screen and (max-height: 740px) {
     .progress_bar {
       padding-top: 1rem;
     }
   }
 
   .bg-img {
-    background-image: url('@/shared/assets/images/Banner.png');
+    background-image: url('@/shared/assets/images/banner_app.png');
   }
 
-  @media screen and (max-height: 670px) {
+  @media screen and (max-height: 740px) {
     .title_sm {
       margin-top: 0%;
     }

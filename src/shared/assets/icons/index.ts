@@ -12,6 +12,7 @@ export { default as IconButton } from './IconButton.vue';
 export { default as IconButtonOpt } from './IconButtonOpt.vue';
 export { default as IconButtonNotOpt } from './IconButtonNotOpt.vue';
 export { default as IconVoltage } from './IconVoltage.vue';
+export { default as IconRocket } from './IconRocket.vue';
 export { default as IconStar } from './IconStar.vue';
 export { default as IconLogo } from './IconLogo.vue';
 export { default as IconBgPurple } from './IconBgPurple.vue';
