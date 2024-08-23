@@ -87,7 +87,7 @@
 
 <template>
     <div class="gradient-bg flex flex-col flex-grow flex-shrink pt-8">
-      <div class="flex flex-col justify-center flex-grow flex-shrink min-h-0">
+      <div class="flex flex-col justify-center flex-grow flex-shrink min-h-0 oveflow-x-hidden overflow-visible w-full">
         <!-- title -->
         <div class="flex flex-col">
           <h1 class="text-muted-foreground text-center">Your Balance</h1>

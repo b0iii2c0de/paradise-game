@@ -258,7 +258,6 @@
 <style scoped>
   .gradient-border {
     border-image: var(--border-gradient) 1;
-    border-radius: 1rem;
   }
 
   /* .icon-aura {
