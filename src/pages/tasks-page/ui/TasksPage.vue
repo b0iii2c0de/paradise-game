@@ -188,7 +188,7 @@
 </script>
 
 <template>
-    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
+    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative" style="transform:translateZ(0);-webkit-overflow-scrolling:touch">
     <!-- список задач -->
     <div class="flex flex-col px-4 pb-3 gap-3">
       <div class="flex flex-col mt-6 mb-2">

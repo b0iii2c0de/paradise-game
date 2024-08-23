@@ -86,7 +86,7 @@
 </script>
 
 <template>
-    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
+    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative" style="transform:translateZ(0);-webkit-overflow-scrolling:touch">
       <div class="gradient-bg flex flex-col flex-grow h-full flex-shrink pt-3">
         <div class="flex flex-col justify-center flex-grow flex-shrink min-h-0 oveflow-x-hidden overflow-visible w-full">
           <!-- title -->
@@ -100,13 +100,13 @@
           </div>
 
           <!-- контейнер для главной кнопки -->
-          <button @mousedown="increment" class="flex justify-center flex-shrink min-h-0">
+          <button @mousedown="increment" class="flex justify-center flex-shrink min-h-0 w-full py-16 -my-16">
               <!-- главная кнопка-монетка -->
-              <div class="my-6 relative flex-shrink min-h-0 flex">
-                  <IconButtonOpt class="w-64 h-auto flex-shrink min-h-0" />
+              <div class="my-6 relative flex-shrink min-h-0 flex mx-auto w-7/12 max-h-full">
+                  <IconButtonOpt class="w-full h-auto flex-shrink" />
 
                   <!-- тень монетки -->
-                  <div class="absolute -bottom-[40px] left-1 right-1 h-4 gradient-shadow blur-md rounded-full z-0"></div>
+                  <div class="absolute -bottom-[30px] left-1 right-1 h-4 gradient-shadow blur-md rounded-full z-0"></div>
                 </div>
           </button>
         </div>

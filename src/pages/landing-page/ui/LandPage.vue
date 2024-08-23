@@ -163,10 +163,10 @@
 </script> 
 
 <template>
-    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
+    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative" style="transform:translateZ(0);-webkit-overflow-scrolling:touch">
       <div class="mask fixed inset-0 max-w-xl mx-auto"></div>
       <div class="bg-img_landing fixed inset-0 max-w-xl mx-auto"></div>
-      <Carousel class="min-h-full flex flex-col gap-5 pb-3">
+      <Carousel class="min-h-full flex flex-col gap-4 py-3">
         <CarouselContent class="flex flex-grow flex-shrink max-w-full">
           <CarouselItem class="flex flex-col items-center justify-center">
             <div class="max-w-[169px] w-full">
@@ -177,7 +177,7 @@
             <h2 class="font-semibold xs:text-xl text-lg mt-[-2px]">BASED ON AI</h2>
 
             <!-- Трейлер -->
-            <div class="w-full h-auto px-5 mt-7 aspect-video">
+            <div class="w-full h-auto px-8 my-4">
               <iframe
                   src="https://www.youtube.com/embed/QdBZY2fkU-0"
                   title="Game Trailer"
@@ -208,8 +208,8 @@
                 THE <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base">FIRST TOKEN</span> THAT HAS <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base">REAL VALUE</span>
               </p>
 
-              <div class="flex flex-col justify-center items-center my-6">
-                <IconButton class="w-[14rem] h-[14rem]" />
+              <div class="flex flex-col justify-center items-center my-6 w-7/12">
+                <IconButton class="w-[14rem] h-auto max-w-full" />
                 <!-- тень -->
                 <div class="h-[10px] w-28 bg-fuchsia-400/20 blur-md rounded-full mt-6"></div>
               </div>
@@ -228,7 +228,7 @@
             </CarouselItem>
 
           <CarouselItem class="flex flex-col items-center justify-center">
-          <h2 class="font-semibold xs:text-[2rem] text-2xl text-center">
+            <h2 class="font-semibold xs:text-[2rem] text-2xl text-center">
               Game Launch
             </h2>
             <p class="font-semibold text-center mt-5 xs:text-[1.2rem] text-base text-balance px-2">

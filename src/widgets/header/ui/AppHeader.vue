@@ -12,9 +12,7 @@
 
 <template>
     <div class="p-[13px] flex justify-between items-center">
-      <RouterLink to="/play" class="active:scale-95 transition-transform pl-1">
-        <IconLogo />
-      </RouterLink>
+      <IconLogo />
 
       <RouterLink to="/wallet" class="active:scale-95 transition-transform pl-1">
         <div class="bg-primary-foreground px-2 py-[2px] rounded-full flex items-center gap-2">
