@@ -9,6 +9,7 @@
 </script>
 
 <template>
+    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
     <div class="flex flex-col px-4 pb-3 gap-3 min-h-full">
     <div class="flex flex-col flex-grow">
       <div class="flex flex-col flex-shrink-0 py-6">
@@ -55,7 +56,6 @@
     </div>
     </div>
 
-    
     <!-- кнопка "вывести" не активна пока не привязан кошелёк,
      при нажатии вызывает модалку с предупреждением -->
     <div class="flex-shrink-0">
@@ -65,6 +65,7 @@
       </Button>
     </div>
   </div>
+    </div>
 </template>
 
 <style scoped>

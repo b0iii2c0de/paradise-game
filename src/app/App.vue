@@ -17,11 +17,7 @@
     <header class="w-full max-w-xl flex-col">
       <Header :count="count" v-if="route.path !== '/'" />
     </header>
-
-    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
-      <RouterView @update-count="updateCount" />
-    </div>
-    
+    <RouterView @update-count="updateCount" />
     <footer class="w-full max-w-xl flex-col pb-2">
       <Footer v-if="route.path !== '/'" />
     </footer>

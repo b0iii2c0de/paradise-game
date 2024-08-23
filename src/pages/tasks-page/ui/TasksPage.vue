@@ -188,6 +188,7 @@
 </script>
 
 <template>
+    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
     <!-- список задач -->
     <div class="flex flex-col px-4 pb-3 gap-3">
       <div class="flex flex-col mt-6 mb-2">
@@ -253,6 +254,7 @@
         </AlertDialogHeader>
       </AlertDialogContent>
     </AlertDialog>
+    </div>
 </template>
 
 <style scoped>

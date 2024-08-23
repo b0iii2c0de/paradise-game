@@ -16,6 +16,7 @@
 </script>
 
 <template>
+    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
   <div class="flex flex-col px-4 pb-3">
 
       <!-- Трейлер -->
@@ -91,4 +92,5 @@
         </p>
       </div>
   </div>
+    </div>
 </template>

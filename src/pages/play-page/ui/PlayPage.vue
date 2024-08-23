@@ -86,84 +86,85 @@
 </script>
 
 <template>
-    <div class="gradient-bg flex flex-col flex-grow h-full flex-shrink pt-3">
-      <div class="flex flex-col justify-center flex-grow flex-shrink min-h-0 oveflow-x-hidden overflow-visible w-full">
-        <!-- title -->
-        <div class="flex flex-col">
-          <h1 class="text-muted-foreground text-center">Your Balance</h1>
-      
-          <div class="pt-2 flex items-center justify-center">
-            <IconButtonOpt class="w-7 h-7" />
-            <span class="text-3xl font-bold pl-3">{{ count }}</span>
+    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
+      <div class="gradient-bg flex flex-col flex-grow h-full flex-shrink pt-3">
+        <div class="flex flex-col justify-center flex-grow flex-shrink min-h-0 oveflow-x-hidden overflow-visible w-full">
+          <!-- title -->
+          <div class="flex flex-col">
+            <h1 class="text-muted-foreground text-center">Your Balance</h1>
+        
+            <div class="pt-2 flex items-center justify-center">
+              <IconButtonOpt class="w-7 h-7" />
+              <span class="text-3xl font-bold pl-3">{{ count }}</span>
+            </div>
           </div>
+
+          <!-- контейнер для главной кнопки -->
+          <button @mousedown="increment" class="flex justify-center flex-shrink min-h-0">
+              <!-- главная кнопка-монетка -->
+              <div class="my-6 relative flex-shrink min-h-0 flex">
+                  <IconButtonOpt class="w-64 h-auto flex-shrink min-h-0" />
+
+                  <!-- тень монетки -->
+                  <div class="absolute -bottom-[40px] left-1 right-1 h-4 gradient-shadow blur-md rounded-full z-0"></div>
+                </div>
+          </button>
         </div>
 
-        <!-- контейнер для главной кнопки -->
-        <button @mousedown="increment" class="flex justify-center flex-shrink min-h-0">
-            <!-- главная кнопка-монетка -->
-            <div class="my-6 relative flex-shrink min-h-0 flex">
-                <IconButtonOpt class="w-64 h-auto flex-shrink min-h-0" />
-
-                <!-- тень монетки -->
-                <div class="absolute -bottom-[40px] left-1 right-1 h-4 gradient-shadow blur-md rounded-full z-0"></div>
+        <div class="flex flex-col flex-shrink-0">
+          <!-- progress bar -->
+          <div class="progress_bar px-5 flex flex-col gap-5">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1">
+                <IconVoltage />
+                <span class="font-semibold">974</span>
+                <span class="text-muted-foreground text-sm">/10000</span>
               </div>
-        </button>
-      </div>
-
-      <div class="flex flex-col flex-shrink-0">
-        <!-- progress bar -->
-        <div class="progress_bar px-5 flex flex-col gap-5">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-1">
-              <IconVoltage />
-              <span class="font-semibold">974</span>
-              <span class="text-muted-foreground text-sm">/10000</span>
+              <!-- это кнопка на другой экран -->
+              <div class="flex items-center gap-1">
+                <IconRocket />
+                <span class="font-semibold">Boost</span>
+              </div>
             </div>
-            <!-- это кнопка на другой экран -->
-            <div class="flex items-center gap-1">
-              <IconRocket />
-              <span class="font-semibold">Boost</span>
-            </div>
+            <Progress :model-value="60" />
           </div>
-          <Progress :model-value="60" />
         </div>
+
+            <!-- Кнопка открывает модалку -->
+          <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
+          <button @click="openModal" class="my-3 px-5 active:scale-95 transition-transform flex-shrink-0">
+            <div class="bg-img max-w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
+          </button>
       </div>
 
-          <!-- Кнопка открывает модалку -->
-        <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
-        <button @click="openModal" class="my-3 px-5 active:scale-95 transition-transform flex-shrink-0">
-          <div class="bg-img max-w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
-        </button>
-    </div>
+      <!-- модалка -->
+      <AlertDialog v-model:open="isModalOpen">
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogCancel class="absolute top-5 right-5 rounded-full bg-neutral-800">
+              <IconCross />
+            </AlertDialogCancel>
+            <AlertDialogTitle class="text-left">Announce</AlertDialogTitle>
+            <AlertDialogDescription class="text-left">
+              We are announcing a drawing for the user who invites the most referrals!
+            </AlertDialogDescription>
+            <AlertDialogDescription class="text-fuchsia-400 text-left">
+              We are increasing the award to 8,000 USDT for first place, 1,500 USDT for second place and 500 USDT for third place.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+        </AlertDialogContent>
+      </AlertDialog>
 
-
-    <!-- модалка -->
-    <AlertDialog v-model:open="isModalOpen">
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogCancel class="absolute top-5 right-5 rounded-full bg-neutral-800">
-            <IconCross />
-          </AlertDialogCancel>
-          <AlertDialogTitle class="text-left">Announce</AlertDialogTitle>
-          <AlertDialogDescription class="text-left">
-            We are announcing a drawing for the user who invites the most referrals!
-          </AlertDialogDescription>
-          <AlertDialogDescription class="text-fuchsia-400 text-left">
-            We are increasing the award to 8,000 USDT for first place, 1,500 USDT for second place and 500 USDT for third place.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-      </AlertDialogContent>
-    </AlertDialog>
-
-    <!-- @animationend="handleAnimationEnd(click.id) в атрибутах ниже" -->
-    <div v-for="click in clicks" 
-      :key="click.id" 
-      class="float-numbs z-10 absolute text-3xl font-bold text-white pointer-events-none flex justify-center" 
-      :style="{ 
-        top: `${click.y - 42}px`, 
-        left: `${click.x - 28}px`,
-      }">
-        +{{ playStore.pointsPerClick }}
+      <!-- @animationend="handleAnimationEnd(click.id) в атрибутах ниже" -->
+      <div v-for="click in clicks" 
+        :key="click.id" 
+        class="float-numbs z-10 absolute text-3xl font-bold text-white pointer-events-none flex justify-center" 
+        :style="{ 
+          top: `${click.y - 42}px`, 
+          left: `${click.x - 28}px`,
+        }">
+          +{{ playStore.pointsPerClick }}
+      </div>
     </div>
 </template>
 
