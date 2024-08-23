@@ -22,7 +22,7 @@
       <RouterView @update-count="updateCount" />
     </div>
     
-    <footer class="w-full max-w-xl flex-col">
+    <footer class="w-full max-w-xl flex-col pb-2">
       <Footer v-if="route.path !== '/'" />
     </footer>
   </div>

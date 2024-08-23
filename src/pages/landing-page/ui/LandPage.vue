@@ -199,11 +199,11 @@
 
       <CarouselItem class="flex flex-col items-center justify-center">
 
-          <h2 class="font-semibold xs:text-3xl text-2xl text-center">
+          <h2 class="font-semibold xs:text-3xl text-2xl text-center text-balance px-2">
             Play & Earn Real Money
           </h2>
 
-          <p class="font-semibold text-center mt-3 mb-6 xs:text-[1.2rem] text-base">
+          <p class="font-semibold text-center mt-3 mb-6 xs:text-[1.2rem] text-base text-balance px-2">
             THE <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base">FIRST TOKEN</span> THAT HAS <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base">REAL VALUE</span>
           </p>
 
@@ -214,13 +214,13 @@
           </div>
 
           <div class="flex flex-col items-center">
-            <p class="font-bold xs:text-[1.7rem] text-xl text-center">
+            <p class="font-bold xs:text-[1.7rem] text-xl text-center text-balance px-2">
               <span class="text-primary-buttonBg font-semibold xs:text-[1.7rem] text-xl">1 $PAR</span>
               ≈ 0.00001 USDT
             </p>
           </div>
 
-          <p class="font-normal xs:text-[1rem] text-sm text-center text-muted-foreground mt-2">
+          <p class="font-normal xs:text-[1rem] text-sm text-center text-muted-foreground mt-2 text-balance px-2">
               Connect your wallet and get the rewards
             </p>
 
@@ -230,7 +230,7 @@
       <h2 class="font-semibold xs:text-[2rem] text-2xl text-center">
           Game Launch
         </h2>
-        <p class="font-semibold text-center mt-5 xs:text-[1.2rem] text-base text-balance">
+        <p class="font-semibold text-center mt-5 xs:text-[1.2rem] text-base text-balance px-2">
           EARN THE
           <span class="text-primary-buttonBg font-semibold xs:text-[1.2rem] text-base"
             >$PAR TOKEN</span
@@ -285,7 +285,8 @@
 <style scoped>
   /* Перенеси в PlayPage эти стили */
   .bg-img_landing {
-    background-image: url('/paradise-game/src/shared/assets/images/Landing.png');
+   /*  background-image: url('/paradise-game/src/shared/assets/images/Landing.png') */
+    background-image: url('@/shared/assets/images/Landing.png');
     background-repeat: no-repeat;
     background-size: 100% auto;
     background-position: center -2px;
