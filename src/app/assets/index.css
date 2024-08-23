@@ -125,9 +125,20 @@
   }
 }
 
+html, body {
+  @apply bg-background text-foreground transition-colors duration-500;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100svh;
+  overflow: hidden;
+}
+
 #app {
   user-select: none;
   position: fixed;
   inset: 0;
+  button: auto;
+  max-height: 100svh;
+  overflow: hidden;
   @apply bg-background text-foreground transition-colors duration-500;
 }

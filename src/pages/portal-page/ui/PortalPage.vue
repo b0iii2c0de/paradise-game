@@ -16,7 +16,7 @@
 </script>
 
 <template>
-   <div class="flex flex-col px-5">
+  <div class="flex flex-col px-4 pb-3">
 
       <!-- Трейлер -->
       <div class="w-full h-auto mt-7 xs:mb-0 aspect-video">

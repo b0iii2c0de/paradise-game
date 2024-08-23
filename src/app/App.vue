@@ -18,7 +18,7 @@
       <Header :count="count" v-if="route.path !== '/'" />
     </header>
 
-    <div class="flex flex-col flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden">
+    <div class="flex-shrink w-full max-w-xl h-full min-h-0 overflow-auto overflow-x-hidden relative">
       <RouterView @update-count="updateCount" />
     </div>
     

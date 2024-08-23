@@ -13,7 +13,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col px-4">
+  <div class="flex flex-col px-4 pb-3">
 
       <div class="flex flex-col mt-6 pb-6">
         <h2 class="font-semibold xs:text-[1.4rem] text-xl">Friends</h2>

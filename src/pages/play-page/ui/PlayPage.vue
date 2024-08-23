@@ -86,7 +86,7 @@
 </script>
 
 <template>
-    <div class="gradient-bg flex flex-col flex-grow flex-shrink pt-8">
+    <div class="gradient-bg flex flex-col flex-grow h-full flex-shrink pt-3">
       <div class="flex flex-col justify-center flex-grow flex-shrink min-h-0 oveflow-x-hidden overflow-visible w-full">
         <!-- title -->
         <div class="flex flex-col">
@@ -99,16 +99,14 @@
         </div>
 
         <!-- контейнер для главной кнопки -->
-        <button @mousedown="increment" class="flex justify-center">
-          <div>
+        <button @mousedown="increment" class="flex justify-center flex-shrink min-h-0">
             <!-- главная кнопка-монетка -->
-              <div class="my-6 relative">
-                <IconButtonOpt class="w-60 h-60" />
+            <div class="my-6 relative flex-shrink min-h-0 flex">
+                <IconButtonOpt class="w-64 h-auto flex-shrink min-h-0" />
 
                 <!-- тень монетки -->
                 <div class="absolute -bottom-[40px] left-1 right-1 h-4 gradient-shadow blur-md rounded-full z-0"></div>
               </div>
-          </div>
         </button>
       </div>
 
@@ -129,15 +127,13 @@
           </div>
           <Progress :model-value="60" />
         </div>
-
-
       </div>
 
           <!-- Кнопка открывает модалку -->
-    <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
-    <button @click="openModal" class="my-3 px-5 active:scale-95 transition-transform">
-      <div class="bg-img max-w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
-    </button>
+        <!-- Перенести позже в @/features/adBanner/ui/AdBannerButton.vue -->
+        <button @click="openModal" class="my-3 px-5 active:scale-95 transition-transform flex-shrink-0">
+          <div class="bg-img max-w-full aspect-[3.4] bg-contain bg-no-repeat bg-center rounded-3xl"></div>
+        </button>
     </div>
 
 

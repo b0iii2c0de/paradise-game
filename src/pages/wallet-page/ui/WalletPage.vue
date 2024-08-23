@@ -9,7 +9,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col px-5 min-h-full gap-3 ">
+    <div class="flex flex-col px-4 pb-3 gap-3 min-h-full">
     <div class="flex flex-col flex-grow">
       <div class="flex flex-col flex-shrink-0 py-6">
       <h2 class="font-semibold xs:text-[1.4rem] text-xl">Wallet</h2>

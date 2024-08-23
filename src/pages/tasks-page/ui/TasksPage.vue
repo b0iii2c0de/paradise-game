@@ -189,7 +189,7 @@
 
 <template>
     <!-- список задач -->
-    <div class="flex flex-col gap-3 px-5">
+    <div class="flex flex-col px-4 pb-3 gap-3">
       <div class="flex flex-col mt-6 mb-2">
         <h2 class="font-semibold xs:text-[1.4rem] text-xl">
           Tasks to do <span class="xs:text-xl text-lg">👋🏻</span>
