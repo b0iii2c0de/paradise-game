@@ -14,7 +14,7 @@
     IconCG,
     IconCMC,
     IconArrowRight,
-    IconButton,
+    IconButtonOpt,
     IconHand,
     IconDad,
     IconCross
@@ -215,7 +215,7 @@
           <div class="flex flex-col gap-1 flex-grow overflow-hidden pl-3">
             <h2 class="font-semibold xs:text-base text-sm truncate">{{ task.title }}</h2>
             <div class="flex flex-row items-center gap-2">
-              <IconButton class="w-5 h-5" />
+              <IconButtonOpt class="w-5 h-5" />
               <span class="font-medium">{{ task.reward }}</span>
             </div>
           </div>
